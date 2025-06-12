@@ -1,0 +1,133 @@
+﻿@charset "UTF-8";
+
+body {
+  font-family:
+    "ヒラギノ角ゴ ProN W3",
+    "游ゴシック",
+    "Meiryo",
+    sans-serif;
+}   
+
+/* header */
+header {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: stretch;
+    width: 70%;
+}
+
+header .globalNav { 
+    width: 80%; /* 横幅指定することで nav が狭くなるのを回避 */
+}
+
+.globalNav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+.globalNav a {
+	color: black;
+    font-size: 14px;
+}
+
+.navItem {
+    border-left: 2px solid #c7c7c7;
+    text-align: center;
+    flex: 0 1 25%;
+}
+.navItem:last-of-type {
+    border-right: 2px solid #c7c7c7;
+}
+.navItem a {
+    text-decoration: none;
+}
+
+
+/* main */
+main {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+    padding-bottom: 30px;
+}
+
+h2 {
+	border-left: 5px solid red;
+	border-bottom: 1px solid #b0b0b0;
+}
+h2 span {
+	box-sizing: border-box;
+	margin-left: 10px;
+}
+
+.mainContent {
+    padding-left: 2rem;
+    padding-right: 2rem;
+    line-height: 2;
+}
+
+.main-wrapper {
+	display: grid;
+	
+	/* カラムのサイズの指定 */
+	grid-template-columns: 2fr 1fr; /* 横並びにするカラム数を指定
+	左から順に表示される。 */
+}
+
+.nav-1 a {
+	text-decoration: none;
+	color: black;
+	/*transition: color 0s;*/
+}
+.nav-1 a:hover { color: red; } /* カーソルを合わせると文字色が変わる */
+
+.profile {
+	/* grid-column: 2; */ /* カラムの配置指定　だが、
+	grid-template-columns: 2fr 1fr;のようにこちらで指定したほうが早い */
+	/* そもそもHTMLのcrassの上下の配置で決めておく */
+	border: 1px solid #bdbdbd;
+	 
+} 
+
+.nav-1 {
+	grid-column: 1;
+	width: 200px;
+	border: 1px solid #bdbdbd;
+}
+
+
+/* footer */
+footer {
+    background-color: #d6d6d6ae;
+    min-width: 1000px; /* min-width は CSS のプロパティで、要素の 最小幅（これ以上小さくならない幅） を指定するために使います。 */
+    padding-bottom: 1px; /* footerの下の余白を埋める */
+    /* margin-bottom: 0; */
+}
+
+.footer-container {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.footer-nav { 
+    width: 40%; 
+    min-width: 300px;
+}
+.footer-nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+.footer-nav a {
+	color: black;
+    font-size: 14px;
+}

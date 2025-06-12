@@ -1,0 +1,155 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <link href="https://unpkg.com/sanitize.css" rel="stylesheet">
+        <link rel="stylesheet" href="Blog_home.css">
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet"><!-- Google日本語フォント -->
+        <!-- Googleフォント -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="font_style.css">
+        <!-- CDN の活用 -->
+        <!-- font-awesome アイコン -->
+        <link rel="stylesheet" href="font-awesome/css/font-awesome.css">
+        
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="description" content="">
+        <title>BlogRam</title>
+    </head>
+    
+    <body>
+        <header class="header">
+            <img src="/icon_img/image2vector.svg" alt="TitoleLogImage" width="20%">        
+            <nav class="globalNav"> 
+                <ul>
+                    <li class="navItem navItem-1"><a href="#"><i class="fa fa-home" aria-hidden="true"></i>HOME</a></li>
+                    <li class="navItem navItem-2"><a href="pick_up.html">オススメ</a></li>
+                    <li class="navItem navItem-3"><a href="form.html"><i class="fa fa-envelope" aria-hidden="true"></i>お問い合わせ</a></li>
+                </ul>
+            </nav> 
+        </header>
+        <div style="width: 100%; height: 1px; background-color: #ebe8e8"></div>
+        <main class="mainContent">
+            <h1>これからは充実した<br><span class="textHighlight">プログラミングライフを</span></h1>
+            <div style="width: 100%; height: 1px; background-color: #ebe8e8"></div>
+            <div class="date-tags"> <!-- サイト更新日を表示 アイコンも追加　-->
+                <span class="post-date"></span>
+                <span class="post-update"></span>
+            </div>
+            <!-- CSS Grid は「HTMLでの子要素の順序に基づいて左から右・上から下に配置される -->
+            <!-- CSS GridでMENU.とprofile -->
+            <div class="main-wrapper"><!--　丸アイコン追加　.circle-image img {border-radius: 50%;}　--> 
+	            <nav class="nav-1" aria-label="ページ内目次"><p class="menu">MENU.</p> <!--　アイコン追加　-->
+	                <ul><!-- list-style: none; /* リストマーカーの削除(点や数字など) */ 追加-->
+	                    <li><a href="#sec1">1. このサイトについて</a></li>
+	                    <li><a href="#sec2">2. プログラミングの目的</a></li>
+	                    <li><a href="#sec3">3. なぜプログラマー</a></li>
+	                    <li><a href="#sec4">4. 学習手順</a></li>
+	                    <li><a href="#sec5">5. まとめ</a></li>
+	                </ul>   
+	            </nav>
+	            <div class="profile" id="sidebar"><div class="user-name">Soshi</div>
+	                <div class="user-name">    
+	                    <p>高卒万年フリータの僕が完全未経験からプログラマーへ。<br>
+                        趣味はパソコンを自作したり多様なジャンルのゲームが好きで、今は距離をおいてプログラミング学習に励んでいます！<br>
+                        息抜きでは音楽聴いて散歩したりもします。<br>
+                        転職活動中にプログラミングに特化した学校に通い勉強をしながら,独学でもWeb制作を進めていました!
+	                    </p>    
+	                </div>
+	            </div>
+			</div>
+			<!-- 下記より本章 -->
+            <section class="section1" id="sec1">
+                <h2><span>1. このサイトについて</span></h2>
+                <p>このサイトは、自身のWeb開発能力やプログラミング技術の向上、ブログで自分の考えを文字に起こす事で頭の整理に繋がることや
+                最終的にこちらのサイトを成果物として残せると思い、できる限りの効率を考え作成いたしました。<br> 
+                未経験からこちらの作成を始めたので、内容やデザインなど多々思うことがあるかもしれませんがご理解ください<br><!-- 語尾に焦りアイコン追加 -->
+                そして、これからプログラミング学習を始める人や初学者が、少しでも学習マインドの参考にしていただけたらと思います！！
+                </p>
+            </section>
+            <div style="width: 100%; height: 1px; background-color: #ebe8e8"></div>
+            <section class="section2" id="sec2">    
+                <h2><span>2. プログラミングの目的</span></h2>
+                <p>結論として、「プログラミングを仕事にする」が目的です！<br>
+                とは言いつつも就職や転職前の面接や、フリーランスとして仕事を受ける前に
+                面談があったりもするので対策として、自分の考えをまとめて具体的な目的や目標は決めておきましょう。<br>
+                普段使用しているWebサービスやスマホアプリを意識してみるといいかもしれません!これら全てがプログラミングから作られます！
+                僕自身、人間社会が続く限り技術進歩はつきもので、そこにプログラムが存在するので必要性を感じています！
+                まず前提としてプログラミングとは何かをイメージする必要があります。<br>
+                それを知るためにまずは、簡単にプログラミングをイメージするための学習ツールProgateをおすすめします!<br>
+                Web開発は今後も需要があるため、まずはフロントエンド開発(Webサイトのデザインなど)に必要なHTML/CSS・JavaScriptコースがおすすめだと思います!<br>
+                学習始めに、Progateで軽くプログラミングのイメージを把握すると、後の学習にも活かせます! 
+                </p> 
+            </section>
+            <div style="width: 100%; height: 1px; background-color: #ebe8e8"></div>
+            <section class="section3" id="sec3">
+                <h2><span>3. なぜプログラマー？</span></h2>
+                <p>手間のかかる作業（めんどくさいと思う事）をツール化するのは技術の進歩に欠かせないことで、これらは主にプログラマーを含むエンジニアの仕事です。
+                今手にしているパソコンやスマホ、その中で扱うサービス全てが技術進歩の集大成ですから！<br><br>もちろん、プログラマーとして就職や転職後も学習を継続していくのは絶対に大事です！！最新の技術やトレンドの把握のためでもあり、
+                基本チーム開発がベースになると思いますので
+                </p>
+            </section>
+            <div style="width: 100%; height: 1px; background-color: #ebe8e8"></div>
+            <section class="section4" id="sec4">
+                <h2><span>4. 学習手順</span></h2>
+                <div class="learning-steps">
+                    <div class="step">
+                        <h3>1. なぜプログラマーなのか、その目的をある程度明確に！</h3>
+                    </div>
+                </div>
+                <div class="step">
+                    <h3>2. パソコンの基本的な操作</h3>
+                    <p>タイピングやフォルダ・ファイル操作など<br>GoogleのChromeを使いこなせると便利!</p>
+                </div>
+                <div class="step">
+                    <h3>3. プログラミングの学習ツールや開発環境を知る</h3> <!-- rel="noopener" 元ページを操作できなくする(セキュリティ強化) rel="noreferrer" リンク元の情報を送信しない -->
+                    <p>学習ツール： <a href="https://prog-8.com" target="_blank" rel="noopener noreferrer">Progate</a>、<a href="https://dotinstall.com" target="_blank" rel="noopener noreferrer">ドットインストール</a>、
+                    <a href="https://www.udemy.com" target="_blank" rel="noopener noreferrer">Udemy</a> など</p>
+                    <p>生成AIの <a href="https://chat.openai.com" target="_blank" rel="noopener noreferrer">Chat-GPT</a> を活用する事例も増えています。</p> <!-- target="_blank"は開いたURLを別タブで開く -->
+                    <p>開発環境：<br>
+                        VSCode…プログラムを書くツール（エディター）<br>
+                        GitHub…プログラムをネット上に保存して管理できるサービス<br>
+                        ※ GitHubはチーム開発に欠かせないツールです。
+                    </p>
+                    <p>※他にも開発するコンテンツや使用するプログラミング言語に合わせて、各自で開発環境を追加していく必要もあります。</p>
+                </div>
+                <div class="step">
+                    <h3>4. まず作りたいシンプルなWebサービス（デザインなど）を考えプログラミングで作る</h3>
+                    <p>興味関心のあるWebサイトやサービスを参考にしてみてください。</p>
+                    <p><strong>※重要：</strong>あまり凝ったデザインや技術スタックの多いWebサービスは避ける。技術力の高さや情報量の多さから、時間も取られて挫折にも繋がる!</p>
+                </div>
+                <div class="step">
+                    <h4>補足：</h4><p>情報を自分で調べて整理する力を身につけることは、かなり大事だと思います。</p>
+                    <p>このブログサイトの作成を始めた時点では、ろくにHTML/CSSは書けず、もちろんJavaScriptやPHPなど使用したプログラミングはほぼ不可能でした。ですが学習ツールやWebサービスを使いこなすことで、学習環境の改善や知識・経験不足を補い、より早くプログラミング技能を身につけることができると思いました!</p>
+                    <p>上記の手順が必ずしも正しいとは限らないので、自分に合った学習方法で効率よく進めてください。</p>
+                </div>
+            </section>
+            <div style="width: 100%; height: 1px; background-color: #ebe8e8"></div>
+            <section class="section5" id="sec5">
+                <h2><span>5. まとめ</span></h2>
+                <p>こちらや他のWebサイトも参考にしつつ、日々学習を進めていく中であまり深く考えこまず、息抜きも挟みながらゲームクリアの感覚でプログラミングを楽しんでください!<br>
+                こちらのサイトを作成していく中で、プログラミング以外のことも学べた気がして良い経験にもなりました！<br>
+                今後の進展に合わせ、こちらのサイトを更新していけたらと思います。ありがとうございます！
+                </p>
+            </section>
+            <div style="width: 100%; height: 1px; background-color: #ebe8e8"></div>			
+        </main>
+        
+        <footer class="footer">
+        <div class="footer-container">
+            <a href="#"><img src="/icon_img/image2vector (3).svg" alt="タイトルロゴイメージ" width="17%"></a>        
+            <p class=""><small style="color: rgb(78, 78, 78);">©️ 2025 Soshi.</small></p>
+            <!-- <div class="heightLine" style="width: 2px; height: 80px; background-color: #c7c7c7"></div> 縦線区切り -->
+            <nav class="footer-nav">
+                <ul>
+                    <li class="navItem"><a href="pick_up.html">オススメ</a></li>
+                    <li class="navItem"><a href="form.html">お問い合わせ</a></li>
+                </ul>
+            </nav>
+            <p class="topBack"><a href="#"><i class="fa fa-home" aria-hidden="true"></i>TOPへ</a></p>
+        </div>
+        </footer>
+    </body>
+</html>
