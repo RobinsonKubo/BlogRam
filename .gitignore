@@ -1,11 +1,11 @@
-# VSCodeの設定
-.vscode/
+# # VSCodeの設定
+# .vscode/
 
-# macOSの不要ファイル
+# # macOSの不要ファイル
 .DS_Store
 
-# 環境変数ファイル（今後使う場合）
-.env
+# # 環境変数ファイル（今後使う場合）
+# .env
 
-# node_modules（将来的にnpmを使うとき）
-node_modules/
+# # node_modules（将来的にnpmを使うとき）
+# node_modules/
