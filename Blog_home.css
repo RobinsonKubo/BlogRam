@@ -36,6 +36,24 @@ header .globalNav {
 	color: black;
     font-size: 14px;
 }
+.globalNav a:hover { 
+    text-decoration: underline;
+    text-decoration-color: #c7c7c7;
+    text-decoration-thickness: 2px; /* 太さを変える */
+    text-underline-offset: 10px; /* 文字と線の間を空ける */ 
+    
+}
+/* .fa-home:hover {
+    text-decoration: underline;
+    text-decoration-color: #c7c7c7;
+    text-decoration-thickness: 2px; 
+    /* text-underline-offset: 10px;
+} */
+.fa-home, .fa-envelope {
+    box-sizing: border-box; 
+    margin-right: 2px;
+    color: #343434;
+} 
 
 .navItem {
     border-left: 2px solid #c7c7c7;
@@ -68,23 +86,36 @@ h2 span {
 	margin-left: 10px;
 }
 
+p {
+    line-height: 3;
+}
+
 .mainContent {
     padding-left: 2rem;
     padding-right: 2rem;
-    line-height: 2;
+    /* line-height: 2; */
 }
 
 .main-wrapper {
 	display: grid;
-	
 	/* カラムのサイズの指定 */
 	grid-template-columns: 2fr 1fr; /* 横並びにするカラム数を指定
 	左から順に表示される。 */
+    box-sizing: border-box;
+    margin-bottom: 50px;
 }
 
+p.menu {
+    text-align: center;
+}
+
+.nav-1 li {
+    line-height: 3;
+}
 .nav-1 a {
 	text-decoration: none;
 	color: black;
+    padding-left: 5px;
 	/*transition: color 0s;*/
 }
 .nav-1 a:hover { color: red; } /* カーソルを合わせると文字色が変わる */
@@ -123,11 +154,17 @@ footer {
     min-width: 300px;
 }
 .footer-nav ul {
-    list-style: none;
+    list-style: none; /* リストマーカーの削除(点や数字など) */
     display: flex;
     justify-content: center;
 }
 .footer-nav a {
 	color: black;
     font-size: 14px;
+}
+.footer-nav a:hover { 
+    text-decoration: underline; 
+    text-decoration-color: #ebe8e8;
+    text-decoration-thickness: 2px; 
+    text-underline-offset: 7px
 }
