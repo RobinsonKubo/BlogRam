@@ -11,19 +11,35 @@ body {
 
 /* -- header -- */
 header {
-    width: 80%;
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
+    position: fixed; /* 画面固定 */
+    top: 0;
+    /* left: 50%;                  /*画面が中央に固定されるように、*/
+    /* transform: translate(-50%); 　left:50%; tranlate(-50%)とする　 */
+    /* width: 80%; */ 
+    z-index: 1000;
+    background-color: white;
+    /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
 }
 .header {
     display: flex; /* 親要素に使う */
     flex-direction: row;
-    justify-content: space-around;
-    align-items: stretch;
-    width: 70%;
+    justify-content: space-between;
+    width: 100%;
 }
-header .globalNav { 
-    width: 80%; /* 横幅指定することで nav が狭くなるのを回避 */
+.title-logo {
+    box-sizing: border-box;
+    margin-left: 200px;
+    width: clamp(160px, 20vw, 160px); /* 最小値、理想値、最大値 */
+}
+.globalNav { 
+    width: 60%; /* 横幅指定することで nav が狭くなるのを回避 */
+    box-sizing: border-box;
+    margin-top: 15px;
+    margin-right: 300px;
+    white-space: nowrap;
 }
 .globalNav ul {
     list-style: none;
@@ -36,11 +52,11 @@ header .globalNav {
 }
 .globalNav a:hover { 
     text-decoration: underline;
-    text-decoration-color: #c7c7c7;
+    text-decoration-color: #555555;
     text-decoration-thickness: 2px; /* 太さを変える */
     text-underline-offset: 10px; /* 文字と線の間を空ける */ 
 }
-.fa-home, .fa-envelope {
+.fa {
     box-sizing: border-box; 
     margin-right: 2px;
     color: #343434;
@@ -50,7 +66,7 @@ header .globalNav {
     text-align: center;
     flex: 0 1 25%;
 }
-.navItem:last-of-type {
+.navItem:last-of-type { /* 要素の最後一番右側にボーダーライン */
     border-right: 2px solid #c7c7c7;
 }
 .navItem a {
@@ -65,21 +81,34 @@ main {
     margin-right: auto;
     box-sizing: border-box;
     padding-bottom: 30px;
+    margin-top: 100px; /* ヘッダーと重ならないように指定 */
 }
-
+.main-head {
+    display: grid; 
+	grid-template-columns: 1fr 1fr;
+}
 /* メニューとプロフィール */
 .main-head-wrapper {
 	display: grid; /* CSSのレイアウトをマス目（グリッド）状に組む */
-	grid-template-columns: 2fr 1fr; /* 横並びにするカラム数を指定
-	左から順に表示される。 */
+	grid-template-columns: 1fr 1fr; /* 横並びにするカラム数を指定左から順に表示される。 */
     box-sizing: border-box;
     margin-bottom: 50px;
+}
+.toc-menu {
+	grid-column: 1;
+	width: 200px;
+	border: 1px solid #bdbdbd;
+    box-sizing: border-box;
+    margin: 15px 0 0 15px;
+    box-sizing: border-box;
+    margin-bottom: 80px; 
 }
 p.menu {
     text-align: center;
 }
 .nav-1 li {
     line-height: 3;
+    box-sizing: border-box;
 }
 .nav-1 a {
 	text-decoration: none;
@@ -87,17 +116,30 @@ p.menu {
     padding-left: 5px;
 }
 .nav-1 a:hover { color: red; } /* カーソルを合わせると文字色が変わる */
-.profile {
+.profile-flex {
+    display: flex;
 	/* grid-column: 2; */ /* カラムの配置指定　だが、
 	grid-template-columns: 2fr 1fr;のようにこちらで指定したほうが早い */
 	/* そもそもHTMLのcrassの上下の配置で決めておく */
 	border: 1px solid #bdbdbd; 
+    box-sizing: border-box;
+    margin: 15px 15px;
+    border-radius: 2%;
+    box-sizing: border-box;
+    padding: 0 15px;
 } 
-.toc-menu {
-	grid-column: 1;
-	width: 200px;
-	border: 1px solid #bdbdbd;
+.profile {
+    box-sizing: border-box;
+    margin: 25px;
 }
+.user-name {
+    text-align: center;
+}
+.profile-text p {
+    line-height: 2.5;
+}
+
+
 .toc-content {
     display: block;
 }
@@ -113,6 +155,8 @@ p.menu {
     font-weight: bold;
     cursor: pointer;
     margin-bottom: 10px;
+    box-sizing: border-box;
+    margin-top: 8px;
 }
 .toggle-text {
     font-size: 0.9em;
@@ -128,7 +172,7 @@ h2 {
 }
 h2 span {
 	box-sizing: border-box;
-	margin-left: 10px;
+	margin: 0 0 0 20px;
 }
 p {
     line-height: 3;
@@ -144,16 +188,33 @@ p {
 footer {
     background-color: #d6d6d6ae;
     min-width: 1000px; /* min-width は CSS のプロパティで、要素の 最小幅（これ以上小さくならない幅） を指定するために使います。 */
-    padding-bottom: 1px; /* footerの下の余白を埋める */
+    padding-bottom: 2px; /* footerの下の余白を埋める */
 }
 .footer-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    flex: 0 0 auto;
+    align-items: flex-start;
     width: 70%;
     margin-left: auto;
     margin-right: auto;
 }
+.block-footer-container {
+    display: block;
+    margin-top: 5px;
+}
+.footer-title-logo {
+    width: clamp(160px, 20vw, 160px); /* 最小値、理想値、最大値 */
+}
+.copyl {
+    box-sizing: border-box;
+    margin-left: 28px;
+    margin-top: -13px; /* マージンで上に上げる */
+    white-space: nowrap; /* 文字を折り返さないようにする */
+}
 .footer-nav { 
-    width: 40%; 
-    min-width: 300px;
+    width: 100%; 
+    min-width: 500px;
 }
 .footer-nav ul {
     list-style: none; /* リストマーカーの削除(点や数字など) */
@@ -170,5 +231,8 @@ footer {
     text-decoration-thickness: 2px; 
     text-underline-offset: 7px
 }
-
-
+.top-back {
+    box-sizing: border-box;
+    margin-top: -3px;
+    justify-self: end; /* グリッド内のカラムを個別に右寄せ */
+}
