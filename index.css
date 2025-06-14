@@ -1,12 +1,1 @@
 /* お試し用 */
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 2rem;
-}
-
-.globalNav {
-    flex-grow: 1;
-    text-align: right;
-}
