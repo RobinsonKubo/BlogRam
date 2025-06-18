@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://unpkg.com/sanitize.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        integrity="sha512-dppxU5HeG3N+etc..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="テスト用のHTMLページです。">
+    <title>Qform</title>
+</head>
+
+<body>
+
+
+    <!-- お試しJavaScript --------------------------------------------------------------->
+
+    <button onclick="openForm()">お問い合わせ</button>
+    <!-- HTMLでタグに id を指定すると、JavaScriptの getElementById() メソッドはその id の値を引数にして、該当する要素を取得することができます。-->
+    <div id="formPopup" class="form-container">
+        <div class="form-box">
+            <span class="close-btn" onclick="closeForm()">×</span>
+            <h2>Hello World!</h2>
+        </div>
+    </div>
+    <script>
+        function openForm() {
+            document.getElementById('formPopup').style.display = "block";
+        }
+
+        function closeForm() {
+            document.getElementById('formPopup').style.display = "none";
+        }
+
+    </script>
+    <!-- こちらの.style.disply = 'block';と).style.display = 'none';はCSSファイルに記述しなくても、JavaScript側がCSSの画面切り替えをおこなっているということになる。 -->
+    <!-- お試しJavaScript ここまで　--------------------------------------------------------------->
+
+
+
+    <h1>Q&A</h1>
+    <p>お問い合わせフォーム</p>
+    <p>こちらのサイトは一人で運営しておりますので、<br>
+        回答にお時間をいただく場合がございます。</p>
+    <form action="program.php" method="post">
+        <label class="form-label" for="userName" aria-hidden="true"> <!--アクセシビリティ対応-->
+            <p>お名前<span class="wpforms-required-label" aria-hidden="true">*</span></p>
+        </label>
+        <input type="text" id="userName" name="userName" required> <!--フォームを送信する際に入力が必須-->
+
+        <label class="form-label" for="email">
+            <p>メールアドレス<span class="wpforms-required-label" aria-hidden="true">*</span></p>
+        </label>
+        <input type="email" id="email" name="email" required>
+
+        <label class="form-label" for="subject">
+            <p>件名</p>
+        </label>
+        <input type="text" id="subject" name="subject" maxlength="40" required>
+
+        <label class="form-label" for="message">
+            <p>お問い合わせ内容<span class="wpforms-required-label" aria-hidden="true">*</span></p>
+        </label>
+        <textarea name="message" id="message" rows="5" maxlength="200" required></textarea>
+
+        <div><input type="submit" class="submit-button" value="送信"></div>
+    </form>
+    <main>
+
+    </main>
+    <footer>
+
+    </footer>
+</body>
+
+</html>

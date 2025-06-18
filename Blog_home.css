@@ -1,4 +1,7 @@
 ﻿@charset "UTF-8";
+html {
+    scroll-behavior: smooth; /* おすすめ */
+}
 
 body {
     font-family:
@@ -14,13 +17,13 @@ header {
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    position: fixed;
-    /* 画面固定 */
+    position: fixed; /* 画面固定 */
+    z-index: 1000; /* 要素の重なり順（前後関係）を指定するプロパティ */
     top: 0;
     /* left: 50%;                  /*画面が中央に固定されるように、*/
     /* transform: translate(-50%); 　left:50%; tranlate(-50%)とする　 */
     /* width: 80%; */
-    z-index: 1000;
+    
     background-color: white;
     /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
 }
@@ -91,6 +94,7 @@ header {
 }
 
 
+
 /* -- ここからmain -- */
 main {
     width: 80%;
@@ -125,6 +129,7 @@ main {
     margin: 15px 0 0 15px;
     box-sizing: border-box;
     margin-bottom: 80px;
+    scroll-behavior: smooth;
 }
 
 p.menu {
@@ -143,10 +148,9 @@ p.menu {
 }
 
 .nav-1 a:hover {
-    color: red;
+    color: red; /* カーソルを合わせると文字色が変わる */
 }
 
-/* カーソルを合わせると文字色が変わる */
 .profile-flex {
     display: flex;
     /* grid-column: 2; */
@@ -213,8 +217,8 @@ p.menu {
 }
 
 .section {
-    scroll-margin-top: 100px;
-}
+    scroll-margin-top: 100px; 
+} /* ヘッダーと重ならぬようにヘッダー分の間を作る */
 
 h2 {
     border-left: 5px solid red;
