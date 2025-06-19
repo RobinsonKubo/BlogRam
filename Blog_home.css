@@ -129,7 +129,6 @@ main {
     margin: 15px 0 0 15px;
     box-sizing: border-box;
     margin-bottom: 80px;
-    scroll-behavior: smooth;
 }
 
 p.menu {

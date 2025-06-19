@@ -18,6 +18,8 @@
     <!-- CDN の活用 -->
     <!-- font-awesome アイコン -->
     <link rel="stylesheet" href="font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        integrity="sha512-dppxU5HeG3N+etc..." crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="description" content="">
@@ -30,53 +32,61 @@
         <nav class="globalNav">
             <ul>
                 <li class="navItem navItem-1"><a href="#"><i class="fa fa-home" aria-hidden="true"></i>HOME</a></li>
-                <li class="navItem navItem-2"><a href="http://example.com" target="_blank" rel="noopener noreferrer"><i
-                            class="fa fa-hand-o-right" aria-hidden="true"></i>オススメ</a></li>
+                <li class="navItem navItem-2"><a href="http://example.com" target="_blank" rel="noopener noreferrer">
+                        <i class="fa fa-hand-o-right" aria-hidden="true"></i>オススメ</a></li>
                 <li class="navItem navItem-3"><a href="form.html" target="_blank" rel="noopener noreferrer">
                         <i class="fa fa-envelope" aria-hidden="true"></i>お問い合わせ</a></li>
             </ul>
         </nav>
 
         <!-- 問い合わせフォームのへのアクセス -->
-        <button onclick="openForm()">お問い合わせ</button>
-        <!-- 下記より問い合せ入力フォーム -->
+        <button class="form-button button-cursor" onclick="openForm()"><i
+                class="fa-solid fa-envelope"></i>お問い合わせ</button>
+        <!-- 下記より問い合せページへ ---------------------------------------------------------------------------->
         <div class="form-container" id="formPopup">
             <div class="form-box">
-                <div class="close-btn" onclick="closeForm()"><span>×</span></div>
-                <p>お問い合わせフォーム</p>
+                <span class="close-btn button-cursor" onclick="closeForm()">×</span>
+                <div class="form-block">
+                    <form class="form-action" action="proglam.php">
+                        <p class="form-action-p"><strong>お問い合わせフォーム</strong></p>
+                        <label class="form-label form-user-name" for="userName" aria-hidden="true"></label>
+                        <input class="input-width input-height" type="text" id="userName" name="userName"
+                            placeholder="お名前*" required>
 
-                <form class="form-action" action="proglam.php">
-                    <label class="form-label" for="userName" aria-hidden="true"></label>
-                    <input type="text" id="userName" name="userName" placeholder="お名前*" required>
+                        <label class="form-label form-email" for="email" aria-hidden="true"></label>
+                        <input class="input-width input-height" type="text" id="email" name="email"
+                            placeholder="メールアドレス*" required>
 
-                    <label class="form-label" for="email" aria-hidden="true"></label>
-                    <input type="text" id="email" name="email" placeholder="メールアドレス*" required>
+                        <div class="job-radio">
+                            <p>ご職業：</p>
+                            <label class="form-check" for="job-company" aria-hidden="true">
+                                <input type="radio" id="job-company" name="job" value="会社員">会社員
+                            </label>
+                            <label class="form-check" for="job-student" aria-hidden="true">
+                                <input type="radio" id="job-student" name="job" value="学生">学生
+                            </label>
+                            <label class="form-check" for="job-other" aria-hidden="true">
+                                <input type="radio" id="job-other" name="job" value="その他">その他
+                            </label>
+                        </div>
 
-                    <label class="form-label" for="subject" aria-hidden="true"></label>
-                    <input type="text" id="subject" name="subject" maxlength="40" placeholder="件名*" required>
+                        <label class="form-label" for="subject" aria-hidden="true"></label>
+                        <input class="input-width input-height" type="text" id="subject" name="subject" maxlength="40"
+                            placeholder="件名*" required>
 
-                    <label class="form-label" for="message" aria-hidden="true"></label>
-                    <textarea type="text" id="message" name="message" rows="7" maxlength="250"
-                        placeholder="お問い合わせ内容※250字以内*"></textarea>
+                        <label class="form-label" for="message" aria-hidden="true"></label>
+                        <textarea class="textarea-width" type="text" id="message" name="message" rows="6"
+                            maxlength="250" placeholder="お問い合わせ内容※250字以内*"></textarea>
 
-                    <button class="submit" type="submit">送信</button>
-                </form>
+                        <button class="submit button-cursor" type="submit">送信</button>
+                    </form>
 
-                <p><small>※こちらのサイトは一人で運営しておりますので、<br>
-                        回答にお時間をいただく場合がございます。</small></p>
+                    <p class="form-note"><small>※こちらのサイトは一人で運営しておりますので、<br>
+                            　 回答にお時間をいただく場合がございます。</small></p>
+                </div>
             </div>
         </div>
-
-        <script>
-            function openForm() {
-                document.getElementById('formPopup').style.display = "block";
-            }
-
-            function closeForm() {
-                document.getElementById('formPopup').style.display = "none";
-            }
-        </script>
-        <!-- ここまで -->
+        <!-- ここまで -------------------------------------------------------------------------------------------------------->
     </header>
 
     <div style="width: 100%; height: 1px; background-color: #ebe8e8"></div>
@@ -96,7 +106,7 @@
             <div class="toc-menu">
                 <input type="checkbox" id="toc-checkbox-2" hidden>
                 <label for="toc-checkbox-2" class="menu-label">
-                    MENU<span class="toggle-text"><small>［閉じる］</small></span>
+                    目次<span class="toggle-text"><small>［閉じる］</small></span>
                 </label>
                 <div class="toc-content">
                     <nav class="nav-1" aria-label="ページ内目次">
@@ -244,6 +254,9 @@
             <p class="top-back"><a href="#"><i class="fa fa-home" aria-hidden="true"></i>TOPへ</a></p>
         </div>
     </footer>
+
+    <script src="js/common.js"></script>
+
 </body>
 
 </html>
