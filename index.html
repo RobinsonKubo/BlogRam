@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <link href="https://unpkg.com/sanitize.css" rel="stylesheet">
-    <link rel="stylesheet" href="Blog_home.css">
-    <link rel="stylesheet" href="Qform.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="form.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
     <!-- Google日本語フォント -->
     <!-- Googleフォント -->
@@ -18,8 +18,8 @@
     <!-- CDN の活用 -->
     <!-- font-awesome アイコン -->
     <link rel="stylesheet" href="font-awesome/css/font-awesome.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-        integrity="sha512-dppxU5HeG3N+etc..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        integrity="sha512-dppxU5HeG3N+etc..." crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
 
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="description" content="">
@@ -28,7 +28,7 @@
 
 <body>
     <header class="header">
-        <img src="/icon_img/image2vector.svg" class="title-logo" alt="TitoleLogImage">
+        <img src="/icon_img/image_vector.svg" class="title-logo" alt="TitoleLogImage">
         <nav class="globalNav">
             <ul>
                 <li class="navItem navItem-1"><a href="#"><i class="fa fa-home" aria-hidden="true"></i>HOME</a></li>
@@ -40,8 +40,7 @@
         </nav>
 
         <!-- 問い合わせフォームのへのアクセス -->
-        <button class="form-button button-cursor" onclick="openForm()"><i
-                class="fa-solid fa-envelope"></i>お問い合わせ</button>
+        <button class="form-button button-cursor" onclick="openForm()"><i class="fa fa-envelope" aria-hidden="true"></i>お問い合わせ</button>
         <!-- 下記より問い合せページへ ---------------------------------------------------------------------------->
         <div class="form-container" id="formPopup">
             <div class="form-box">
@@ -81,7 +80,7 @@
                         <button class="submit button-cursor" type="submit">送信</button>
                     </form>
 
-                    <p class="form-note"><small>※こちらのサイトは一人で運営しておりますので、<br>
+                    <p class="form-note"><small>※こちらのサイトは個人で運営しておりますので、<br>
                             　 回答にお時間をいただく場合がございます。</small></p>
                 </div>
             </div>
@@ -92,8 +91,8 @@
     <div style="width: 100%; height: 1px; background-color: #ebe8e8"></div>
     <main class="mainContent">
         <div class="main-head">
-            <h1>これからは充実した、<br><span class="textHighlight">プログラミングライフを。</span></h1>
-            <img src="icon_img/java_sparrow2.png" class="bird-img" alt="文鳥の写真" width="300px">
+            <h1>Hello World！<br>これからは充実した、<br><span class="textHighlight">プログラミングライフを。</span></h1>
+            <img src="icon_img/java_sparrow.png" class="bird-img" alt="文鳥の写真だよ" width="450px">
         </div>
         <div style="width: 100%; height: 1px; background-color: #d3d3d3"></div>
         <div class="date-tags"> <!-- サイト更新日を表示 アイコンも追加　-->
@@ -102,14 +101,14 @@
         </div>
         <!-- CSS Grid は「HTMLでの子要素の順序に基づいて左から右・上から下に配置される -->
         <!-- CSS Gridで目次とプロフィール -->
-        <div class="main-head-wrapper">
+        <div class="main-head-grid">
             <div class="toc-menu">
                 <input type="checkbox" id="toc-checkbox-2" hidden>
-                <label for="toc-checkbox-2" class="menu-label">
+                <label for="toc-checkbox-2" class="menu-label"  aria-label="ページ内目次">
                     目次<span class="toggle-text"><small>［閉じる］</small></span>
                 </label>
                 <div class="toc-content">
-                    <nav class="nav-1" aria-label="ページ内目次">
+                    <nav class="nav-1">
                         <ul>
                             <li><a href="#sec1">1. このサイトについて</a></li>
                             <li><a href="#sec2">2. プログラミングの目的</a></li>
@@ -123,7 +122,7 @@
             <!--　下記の"profile"のネームの左に丸アイコン追加　.circle-image img {border-radius: 50%;}　-->
             <div class="profile-flex">
                 <div class="profile" id="sidebar">
-                    <div class="user-name">Soshi</div>
+                    <div class="user-name"><img src="icon_img/java_sparrow.png" class="circle-user-icon" alt="ぼくのアイコン" width="60px">Soshi</div>
                     <div class="profile-text">
                         <p>高卒万年フリータの僕が完全未経験(ガチ)からプログラマーへ。<br>
                             趣味はパソコンを自作したり多様なジャンルのゲームが好きで、今は距離をおいてプログラミング学習に励んでます。<br>
@@ -141,18 +140,17 @@
                     <h2><span>1. このサイトについて</span></h2>
                     <p>このサイトは、自身のWeb開発能力やプログラミング技術の向上、ブログで自分の考えを文字に起こす事で頭の整理に繋がることや
                         最終的にこちらのサイトを成果物として残せると思い、できる限りの効率を考え作成いたしました。<br>
-                        未経験からこちらの作成を始めたので、内容やデザインなど多々思うことがあるかもしれませんがご理解ください<br><!-- 語尾に焦りアイコン追加 -->
-                        そして、これからプログラミング学習を始める人や初学者が、少しでも学習マインドの参考にしていただけたらと思います！！
+                        未経験からこちらの作成を始めたので、内容やデザインなど多々思うことがあるかもしれませんがご理解ください！！<br><!-- 語尾に焦りアイコン追加 -->
+                        これからプログラミング学習を始める人や初学者が、少しでも学習マインドの参考にしていただけたらと思います！！
                     </p>
                 </section>
                 <!-- <div style="width: 100%; height: 1px; background-color: #ebe8e8"></div> -->
                 <section class="section" id="sec2">
                     <h2><span>2. プログラミングの目的</span></h2>
                     <p>結論として、「プログラミングを仕事にする」が目的です！<br>
-                        とは言いつつも就職や転職前の面接や、フリーランスとして仕事を受ける前に
-                        面談があったりもするので、対策として自分の考えをまとめて具体的な目的や目標は決めておきましょう。<br>
+                        とはいえ就職や転職前の面接があると思うので、対策として自分の考えをまとめて具体的な目的や目標は決めておきましょう。<br>
                         普段使用しているWebサービスやスマホアプリを意識してみるといいかもしれません!これら全てがプログラミングから作られます！
-                        僕自身、人間社会が続く限り技術進歩はつきもので、そこにプログラムが存在するので必要性を感じています！
+                        僕自身、人間社会が続く限り技術進歩はつきもので、そこにプログラムが存在するので今後の市場価値も高いです。
                         まず前提としてプログラミングとは何かをイメージする必要があります。<br>
                         それを知るためにまずは、簡単にプログラミングをイメージするための学習ツールProgateをおすすめします!<br>
                         Web開発は今後も需要があるため、まずはフロントエンド開発(Webサイトのデザインなど)に必要なHTML/CSS・JavaScriptコースがおすすめだと思います!<br>
@@ -178,11 +176,11 @@
                     </div>
                     <div class="step">
                         <h3>2. パソコンの基本的な操作</h3>
-                        <p>タイピングやフォルダ・ファイル操作など<br>GoogleのChromeを使いこなせると便利!</p>
+                        <p>タイピングやフォルダ・ファイル操作など<br>Googleの<i class="fa fa-chrome" aria-hidden="true"></i>Chromeを使いこなせると便利!</p>
                     </div>
                     <div class="step">
                         <h3>3. プログラミングの学習ツールや開発環境を知る</h3>
-                        <!-- rel="noopener" 元ページを操作できなくする(セキュリティ強化) rel="noreferrer" リンク元の情報を送信しない -->
+                        <!-- ※重要　rel="noopener" 元ページを操作できなくする(セキュリティ強化) rel="noreferrer" リンク元の情報を送信しない -->
                         <p>学習ツール： <a href="https://prog-8.com" target="_blank" rel="noopener noreferrer">Progate</a>、
                             <a href="https://dotinstall.com" target="_blank" rel="noopener noreferrer">ドットインストール</a>、
                             <a href="https://www.udemy.com" target="_blank" rel="noopener noreferrer">Udemy</a> など
@@ -192,6 +190,7 @@
                             を活用する事例も増えています。</p> <!-- target="_blank"は開いたURLを別タブで開く -->
                         <p>開発環境：<br>
                             VSCode…プログラムを書くツール（エディター）<br>
+                            <i class="fa fa-github" aria-hidden="true"></i>
                             GitHub…Gitでプログラムをネット上に保存してGUIで管理できるWebサービス(Git＋多機能)<br>
                             ※ Gitとは簡単にファイル内容の変更管理などを、主にコマンドで操作するツール<br>
                             ※ GitHubはチーム開発に欠かせないツールです。ソースコードの共有やレービュー機能(コードの確認・指摘)など
@@ -201,7 +200,7 @@
                     <div class="step">
                         <h3>4. まず作りたいシンプルなWebサービス（デザインなど）を考えプログラミングで作る</h3>
                         <p>興味関心のあるWebサイトやサービスを参考にしてみるのもアリです！</p>
-                        <p><strong>※重要：</strong>あまり凝ったデザインや技術スタックの多いWebサービスは避ける。技術力の高さや情報量の多さから、時間も取られて挫折にも繋がる。</p>
+                        <p><strong>※重要：</strong>あまり凝ったデザインや技術スタックの多いWebサービスは避ける。技術力の高さや情報量の多さから、学習時間も増えて挫折に繋がります！</p>
                     </div>
                     <div class="step">
                         <p><strong>補足：</strong>情報を自分で調べて整理する力を身につけることも大事だと思います。</p>
@@ -234,13 +233,12 @@
                     </div>
                 </aside>
             </div>
-        </div>
     </main>
 
     <footer class="footer">
         <div class="footer-container">
             <div class="block-footer-container">
-                <a href="#"><img src="/icon_img/image2vector (3).svg" class="footer-title-logo" alt="タイトルロゴイメージ"
+                <a href="#"><img src="/icon_img/image_vector.svg" class="footer-title-logo" alt="タイトルロゴイメージ"
                         width="50%"></a>
                 <p class="copyl"><small style="color: rgb(78, 78, 78);">©️ 2025 Soshi.</small></p>
             </div>
@@ -255,6 +253,7 @@
         </div>
     </footer>
 
+    <!-- Java Script -->
     <script src="js/common.js"></script>
 
 </body>
