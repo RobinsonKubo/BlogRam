@@ -22,9 +22,10 @@ header {
     /* left: 50%;                  /*画面が中央に固定されるように、*/
     /* transform: translate(-50%); 　left:50%; tranlate(-50%)とする　 */
     /* width: 80%; */
-    
     background-color: white;
     /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
+    /* position: relative; 親要素にrelativeを指定して、子要素にrelativeを指定することでその子要素を自由に配置できる。 */
+    border-bottom: 1px solid #00000022;
 }
 
 .header {
@@ -92,6 +93,28 @@ header {
     text-decoration: none;
 }
 
+.form-button {
+    border: none;
+    background-color: rgba(255, 255, 255, 0);
+    box-sizing: border-box;
+    margin: 20px;
+    width: 15rem;
+    margin-right: 20rem;
+    white-space: nowrap;
+}
+
+.form-button:hover {
+    text-decoration: underline;
+    text-decoration-color: #555555;
+    text-decoration-thickness: 2px;
+    /* 太さを変える */
+    text-underline-offset: 10px;
+    /* 文字と線の間を空ける */
+}
+
+.button-cursor {
+    cursor: pointer;
+}
 
 
 /* -- ここからmain -- */
@@ -125,6 +148,7 @@ main {
 }
 
 .toc-menu {
+    /* white-space: nowrap; */
     grid-column: 1;
     width: 45%;
     border: 1px solid #bdbdbd;
@@ -132,6 +156,7 @@ main {
     margin: 15px 0 0 4rem;
     /* margin-bottom: 80px; */
     padding-top: 15px;
+    
 }
 
 p.menu {

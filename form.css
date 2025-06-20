@@ -24,27 +24,6 @@
     transition: opacity 0.3s; */
 }
 
-.form-button {
-    border: none;
-    background-color: rgba(255, 255, 255, 0);
-    box-sizing: border-box;
-    margin: 20px;
-    width: 15rem;
-}
-
-.form-button:hover {
-    text-decoration: underline;
-    text-decoration-color: #555555;
-    text-decoration-thickness: 2px;
-    /* 太さを変える */
-    text-underline-offset: 10px;
-    /* 文字と線の間を空ける */
-}
-
-.button-cursor {
-    cursor: pointer;
-}
-
 .form-action {
     box-sizing: border-box;
     margin-left: 6%;
@@ -57,7 +36,7 @@
 
 .form-box {
     overflow-y: auto;
-    /* max-height: 80vh; */
+    max-height: 80vh;
     width: 500px;
     height: 600px;
     background-color: white;
@@ -98,10 +77,6 @@
     /* box-sizing: border-box; */
     /* margin-top: 0; */
 }
-
-/* .form-user-name .form-email {
-    width: 200px;
-} */
 
 .job-radio {
     display: flex;
