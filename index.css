@@ -11,7 +11,6 @@ body {
         sans-serif;
 }
 
-
 /* -- header -- */
 header {
     width: 100%;
@@ -106,13 +105,13 @@ main {
     /* ヘッダーと重ならないように指定 */
 }
 
-.main-head {
+.main-head-title {
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
 
-.main-head h1 {
-    font-size: 2.8rem;
+.main-head-title h1 {
+    font-size: 2.5rem;
 }
 
 /* メニューとプロフィール */
