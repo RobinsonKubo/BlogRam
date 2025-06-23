@@ -208,7 +208,7 @@ p.menu {
 }
 
 .circle-user-icon {
-    border-radius: 50%; /* 画像を丸くできる */
+    border-radius: 50%; /* 画像を丸くする */
 }
 
 .user-name {

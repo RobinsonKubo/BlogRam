@@ -6,8 +6,8 @@
     <link href="https://unpkg.com/sanitize.css" rel="stylesheet">
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="form.css">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
     <!-- Google日本語フォント -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
     <!-- Googleフォント -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,8 +15,7 @@
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="font_style.css">
-    <!-- CDN の活用 -->
-    <!-- font-awesome アイコン -->
+    <!-- font-awesome アイコン CDN -->
     <link rel="stylesheet" href="font-awesome/css/font-awesome.css">
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
         integrity="sha512-dppxU5HeG3N+etc..." crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
@@ -42,7 +41,7 @@
         <!-- 問い合わせフォームのへのアクセス -->
         <button class="form-button button-cursor" onclick="openForm()"><i class="fa fa-envelope"
                 aria-hidden="true"></i>お問い合わせ</button>
-        <!-- 下記より問い合せページへ ---------------------------------------------------------------------------->
+        <!-- 下記より問い合せページへ ----------------------------------------------------------------------------------------->
         <div class="form-container" id="formPopup">
             <div class="form-box">
                 <span class="close-btn button-cursor" onclick="closeForm()">×</span>
@@ -93,14 +92,14 @@
             <h1>Hello World！<br>これからは充実した、<br><span class="textHighlight">プログラミングライフを。</span></h1>
             <img src="icon_img/java_sparrow.png" class="bird-img" alt="文鳥の写真だよ" width="430px">
         </div>
-        <!-- ブログサイトはサイトが更新日表示は非常に重要 -->
+        <!-- ブログサイトは更新日の表示は非常に重要 あとで追加-->
         <div style="width: 110vw; height: 1px; background-color: #d3d3d3; margin: 0 -15vw;"></div>
         <div class="date-tags"> <!-- サイト更新日を表示 アイコンも追加　-->
             <span class="post-date"></span>
             <span class="post-update"></span>
         </div>
-        <!-- CSS Grid は「HTMLでの子要素の順序に基づいて左から右・上から下に配置される -->
-        <!-- CSS Gridで目次とプロフィール -->
+        
+        <!-- 目次とプロフィールをGrid　-->
         <div class="main-head-grid">
             <div class="toc-menu">
                 <input type="checkbox" id="toc-checkbox-2" hidden>
@@ -119,7 +118,7 @@
                     </nav>
                 </div>
             </div>
-            <!--　下記の"profile"のネームの左に丸アイコン追加　.circle-image img {border-radius: 50%;}　-->
+            
             <div class="profile-flex">
                 <div class="profile" id="sidebar">
                     <div class="user-name"><img src="icon_img/java_sparrow.png" class="circle-user-icon" alt="ぼくのアイコン"
@@ -133,7 +132,7 @@
                 </div>
             </div>
         </div>
-
+        <!-- メインとサイドをグリッド分け -->
         <div class="main-grid">
             <div class="section-grid">
                 <!-- 下記より本章 -->
@@ -141,11 +140,11 @@
                     <h2><span>1. このサイトについて</span></h2>
                     <p>このサイトは、自身のWeb開発能力やプログラミング技術の向上、ブログで自分の考えを文字に起こす事で頭の整理に繋がることや
                         最終的にこちらのサイトを成果物として残せると思い、できる限りの効率を考え作成いたしました。<br>
-                        未経験からこちらの作成を始めたので、内容やデザインなど多々思うことがあるかもしれませんがご理解ください！！<br><!-- 語尾に焦りアイコン追加 -->
+                        未経験から作成を始めたので、情報量や文章内容が浅いかもしれませんがご了承ください！！<br>
                         これからプログラミング学習を始める人や初学者が、少しでも学習マインドの参考にしていただけたらと思います！！
                     </p>
                 </section>
-                <!-- <div style="width: 100%; height: 1px; background-color: #ebe8e8"></div> -->
+                
                 <section class="section" id="sec2">
                     <h2><span>2. プログラミングの目的</span></h2>
                     <p>結論として、「プログラミングを仕事にする」が目的です！<br>
@@ -158,7 +157,7 @@
                         学習始めに、Progateで軽くプログラミングのイメージを把握すると、後の学習にも活かせます!
                     </p>
                 </section>
-                <!-- <div style="width: 100%; height: 1px; background-color: #ebe8e8"></div> -->
+                
                 <section class="section" id="sec3">
                     <h2><span>3. なぜプログラマー？</span></h2>
                     <p>手間のかかる作業（めんどくさいと思う事）をツール化するのは技術の進歩に欠かせないことで、これらは主にプログラマーを含むエンジニアの仕事です。
@@ -167,7 +166,7 @@
                         基本チーム開発がベースになると思いますので
                     </p>
                 </section>
-                <!-- <div style="width: 100%; height: 1px; background-color: #ebe8e8"></div> -->
+                
                 <section class="section" id="sec4">
                     <h2><span>4. 学習手順</span></h2>
                     <div class="learning-steps">
@@ -182,23 +181,23 @@
                     </div>
                     <div class="step">
                         <h3>3. プログラミングの学習ツールや開発環境を知る</h3>
-                        <!-- ※重要　rel="noopener" 元ページを操作できなくする(セキュリティ強化) rel="noreferrer" リンク元の情報を送信しない -->
+                        <!-- ※重要　"_blank"は別タブで開く rel="noopener" 元ページを操作できなくする(セキュリティ強化) rel="noreferrer" リンク元の情報を送信しない -->
                         <p>学習ツール： <a href="https://prog-8.com" target="_blank" rel="noopener noreferrer">Progate</a>、
                             <a href="https://dotinstall.com" target="_blank" rel="noopener noreferrer">ドットインストール</a>、
                             <a href="https://www.udemy.com" target="_blank" rel="noopener noreferrer">Udemy</a> など
                         </p>
                         <p>生成AIの <a href="https://chat.openai.com" target="_blank"
                                 rel="noopener noreferrer">Chat-GPT</a>
-                            を活用する事例も増えています。</p> <!-- target="_blank"は開いたURLを別タブで開く -->
+                            を活用する事例も増えています。</p> 
                         <p>開発環境：<br>
                             <i class="fa fa-vscode" aria-hidden="true"></i>
                             VSCode…プログラムを書くツール（エディター）<br>
                             <i class="fa fa-github" aria-hidden="true"></i>
                             GitHub…Gitでプログラムをネット上に保存してGUIで管理できるWebサービス(Git＋多機能)<br>
                             ※ Gitとは簡単にファイル内容の変更管理などを、主にコマンドで操作するツール<br>
-                            ※ GitHubはチーム開発に欠かせないツールです。ソースコードの共有やレービュー機能(コードの確認・指摘)など
+                            ※ GitHubはチーム開発に欠かせないツールです。ソースコードの共有やレービュー機能(コード確認・指摘)など
                         </p>
-                        <p>※他にも開発するコンテンツや使用するプログラミング言語に合わせて、各自で開発環境を追加していく必要がある。</p>
+                        <p>※他にも使用するプログラミング言語やWebサービスに合わせて、各自で開発環境を追加していく必要がある。</p>
                     </div>
                     <div class="step">
                         <h3>4. まず作りたいシンプルなWebサービス（デザインなど）を考えプログラミングで作る</h3>
@@ -212,7 +211,7 @@
                         <p>上記の手順が必ずしも正しいとは限らないので、自分に合った学習方法で効率よく進めてください。</p>
                     </div>
                 </section>
-                <!-- <div style="width: 100%; height: 1px; background-color: #ebe8e8"></div> -->
+               
                 <section class="section" id="sec5">
                     <h2><span>5. まとめ</span></h2>
                     <p>こちらや他のWebサイトも参考にしつつ、日々学習を進めていく中であまり深く考えこまず、息抜きも挟みながらゲームクリアの感覚でプログラミングを楽しんでください！<br>
@@ -223,7 +222,7 @@
             </div>
 
             <div class="said-grid">
-                <!-- サイドバーの最新記事 -->
+                <!-- サイドバー最新記事 -->
                 <aside class="sidebar">
                     <div class="sidebar-content">
                         <h2><span>最新記事</span></h2>
@@ -246,7 +245,7 @@
                         width="50%"></a>
                 <p class="copyl"><small style="color: rgb(78, 78, 78);">©️ 2025 Soshi.</small></p>
             </div>
-            <!-- <div class="heightLine" style="width: 2px; height: 80px; background-color: #c7c7c7"></div> 縦線区切り -->
+            
             <nav class="footer-nav">
                 <ul>
                     <li class="navItem"><a href="pick_up.html" target="_blank" rel="noopener noreferrer">オススメ</a></li>
@@ -254,6 +253,7 @@
                     <li class="navItem"><a href="form.html" target="_blank" rel="noopener noreferrer">お問い合わせ</a></li>
                 </ul>
             </nav>
+
             <p class="top-back"><a href="#"><i class="fa fa-home" aria-hidden="true"></i>TOPへ</a></p>
         </div>
     </footer>
