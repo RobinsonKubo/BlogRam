@@ -1,6 +1,6 @@
 // 問い合わせフォーム
 function openForm() {
-    document.getElementById('formPopup').style.display = "block";
+    document.getElementById('formPopup').style.display = "flex";
     document.body.classList.add('no-scroll');
 }
 
