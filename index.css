@@ -121,8 +121,8 @@ header {
 
 /* -- ここからmain ------------------------------------------------- */
 main {
-    width: 80%;
-    margin: 0 auto;
+    /* width: 80%; */
+    /* margin: 0 auto; */
     box-sizing: border-box;
     padding-bottom: 30px;
     margin-top: 100px;
@@ -134,6 +134,10 @@ main {
     grid-template-columns: 1.2fr 1fr;
     gap: 5%;
     flex-wrap: wrap; 
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    overflow-x: hidden; /* 追加：はみ出した部分を非表示に */
 }
 
 .main-head-title h1 {
@@ -152,12 +156,15 @@ main {
 }
 
 .main-contener-grid {
+    width: 80%;
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 7%; 
     /* カラム同士の間をあける */
     box-sizing: border-box;
     margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .toc-menu {
@@ -275,11 +282,6 @@ p {
     line-height: 3;
 }
 
-.mainContent {
-    padding-left: 2rem;
-    padding-right: 2rem;
-}
-
 .sidebar-content {
     line-height: 3;
 }
@@ -288,12 +290,12 @@ p {
 /* -- footer ------------------------------------------------- */
 footer {
     background-color: #d6d6d667;
-    min-width: 1000px;
+    /* min-width: 500px; */
     /* min-width は CSS のプロパティで、要素の 最小幅（これ以上小さくならない幅） を指定するために使います。 */
     /* padding-bottom: auto; */
     /* footerの下の余白を埋める */
-    box-sizing: border-box;
-    bottom: 0;
+    /* box-sizing: border-box;
+    bottom: 0; */
 }
 
 .footer-container {
@@ -306,10 +308,10 @@ footer {
     margin-right: auto;
 }
 
-.block-footer-container {
+/* .block-footer-container {
     display: block;
     margin-top: 5px;
-}
+} */
 
 .footer-title-logo {
     width: clamp(120px, 20vw, 160px);
@@ -327,7 +329,7 @@ footer {
 
 .footer-nav {
     width: 100%;
-    min-width: 500px;
+    /* min-width: 500px; */
 }
 
 .footer-nav ul {
@@ -360,8 +362,10 @@ footer {
 /* -- レスポンシブ対応 --------------------------------- */
 /* WQHD width:2560p の半分 */
 @media screen and (max-width: 1280px) {
-    main { 
-        width: 100%;
+    .main-head-title {
+        width: 95%;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .main-head-title h1 {
@@ -370,10 +374,24 @@ footer {
         box-sizing: border-box;
         margin-left: auto;
     }
+
+    /* .bird-img {
+        max-width: 100%;
+        height: auto;
+    } */
+
+    .main-contener-grid {
+        width: 95%;
+        margin-left: auto;
+        margin-right: auto;
+        /* 上記のgridのgap7%がそのまま反映されるのでgapを０か丁度よい幅にする */
+        grid-template-columns: 1fr;
+        gap: 0; 
+    }
     
     .toc-menu {
         box-sizing: border-box;
-        margin: -5px 0 30px 11rem;
+        margin: -5px 0 30px 8rem;
     }
 
     .menu-label {
@@ -384,7 +402,7 @@ footer {
     .toc-content {
         /* display: block; */
         box-sizing: border-box;
-        margin-left: 1.5rem;
+        margin-left: 1rem;
         margin-top: -15px;
         margin-bottom: -2px;
     }
@@ -403,6 +421,11 @@ footer {
         border-right: 5px solid red;
         border-top: 1px solid #b0b0b0;
         border-bottom: 1px solid #b0b0b0;
+    }
+
+    h2 span {
+        box-sizing: border-box;
+        margin-left: 1.5rem;
     }
 
     p {
