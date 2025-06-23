@@ -18,7 +18,7 @@ body {
     );
 }
 
-/* -- header -- */
+/* -- header ------------------------------------------------ */
 header {
     width: 100%;
     margin: 0 auto;
@@ -42,6 +42,8 @@ header {
 .title-logo {
     width: clamp(120px, 20vw, 160px);
     /* 最小値、理想値、最大値 */
+    box-sizing: border-box;
+    margin-left: 10%;
 }
 
 .globalNav {
@@ -117,11 +119,10 @@ header {
     cursor: pointer;
 }
 
-/* -- ここからmain -- */
+/* -- ここからmain ------------------------------------------------- */
 main {
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
+    width: 80%;
+    margin: 0 auto;
     box-sizing: border-box;
     padding-bottom: 30px;
     margin-top: 100px;
@@ -130,13 +131,16 @@ main {
 
 .main-head-title {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 5%;
+    flex-wrap: wrap; 
 }
 
 .main-head-title h1 {
-    font-size: 2.5rem; 
+    line-height: 70px;
+    font-size: 2.8rem; 
     box-sizing: border-box;
-    margin: auto; 
+    margin-left: 25%;
 }
 
 .text-gradient {
@@ -150,7 +154,10 @@ main {
 .main-contener-grid {
     display: grid;
     grid-template-columns: 2fr 1fr;
-    gap: 70px; /* カラム同士の間をあける */
+    gap: 7%; 
+    /* カラム同士の間をあける */
+    box-sizing: border-box;
+    margin-top: 30px;
 }
 
 .toc-menu {
@@ -159,10 +166,9 @@ main {
     width: 45%;
     border: 1px solid #bdbdbd;
     box-sizing: border-box;
-    margin: 15px 0 0 9rem;
-    /* margin-bottom: 80px; */
+    margin: 15px 0 0 10rem;
+    margin-bottom: 50px;
     padding-top: 15px;
-    
 }
 
 p.menu {
@@ -171,7 +177,6 @@ p.menu {
 
 .nav-1 li {
     line-height: 3;
-    box-sizing: border-box;
 }
 
 .nav-1 a {
@@ -202,9 +207,8 @@ p.menu {
     border: 1px solid #bdbdbd;
     box-sizing: border-box;
     margin: 15px 10px 50px 10px;
-    border-radius: 2%;
-    box-sizing: border-box;
     padding: 0 15px;
+    border-radius: 2%;
     box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.2);
 }
 
@@ -246,13 +250,9 @@ p.menu {
     margin-left: 8px;
     color: #555;
 }
-
 /* 〜ここまで〜 */
 
 /* ここから本章 */
-/* .main-grid {
-   
-} */
 
 .section {
     scroll-margin-top: 100px; /* ヘッダーと重ならぬようにヘッダー分の間を作る */
@@ -273,7 +273,6 @@ h2 span {
 
 p {
     line-height: 3;
-    box-sizing: border-box;
 }
 
 .mainContent {
@@ -284,16 +283,17 @@ p {
 .sidebar-content {
     line-height: 3;
 }
-/* -- mainここまで -- */
+/* -- mainここまで -------------------------------------------- */
 
-
-/* -- footer -- */
+/* -- footer ------------------------------------------------- */
 footer {
-    background-color: #d6d6d6ae;
+    background-color: #d6d6d667;
     min-width: 1000px;
     /* min-width は CSS のプロパティで、要素の 最小幅（これ以上小さくならない幅） を指定するために使います。 */
-    padding-bottom: auto;
+    /* padding-bottom: auto; */
     /* footerの下の余白を埋める */
+    box-sizing: border-box;
+    bottom: 0;
 }
 
 .footer-container {
@@ -355,3 +355,63 @@ footer {
     justify-self: end;
     /* グリッド内のカラムを個別に右寄せ */
 }
+
+
+/* -- レスポンシブ対応 --------------------------------- */
+/* WQHD width:2560p の半分 */
+@media screen and (max-width: 1280px) {
+    main { 
+        width: 100%;
+    }
+
+    .main-head-title h1 {
+        line-height: 45px;
+        font-size: 2rem; 
+        box-sizing: border-box;
+        margin-left: auto;
+    }
+    
+    .toc-menu {
+        box-sizing: border-box;
+        margin: -5px 0 30px 11rem;
+    }
+
+    .menu-label {
+        box-sizing: border-box;
+        margin-top: -5px;
+    }
+
+    .toc-content {
+        /* display: block; */
+        box-sizing: border-box;
+        margin-left: 1.5rem;
+        margin-top: -15px;
+        margin-bottom: -2px;
+    }
+
+    .nav-1 li {
+        line-height: 2.5;
+    }
+
+    .main-contener-grid {
+        grid-template-columns: 1fr; /* 縦1列にする */
+    }
+
+    h2 {
+        line-height: 1.7;
+        border-left: 5px solid red;
+        border-right: 5px solid red;
+        border-top: 1px solid #b0b0b0;
+        border-bottom: 1px solid #b0b0b0;
+    }
+
+    p {
+        line-height: 2.5;
+    }
+
+    .section {
+        box-sizing: border-box;
+        padding-bottom: 0px;
+    } 
+
+} 
