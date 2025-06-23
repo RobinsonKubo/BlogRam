@@ -88,54 +88,41 @@
         </div>
         <!-- ここまで -------------------------------------------------------------------------------------------------------->
     </header>
+
     <main class="mainContent">
         <div class="main-head-title">
             <h1>Hello World！<br>これからは充実した、<br><span class="textHighlight">プログラミングライフを。</span></h1>
             <img src="icon_img/java_sparrow.png" class="bird-img" alt="文鳥の写真だよ" width="430px">
         </div>
+
         <!-- ブログサイトは更新日の表示は非常に重要 あとで追加-->
         <div style="width: 110vw; height: 1px; background-color: #d3d3d3; margin: 0 -15vw;"></div>
         <div class="date-tags"> <!-- サイト更新日を表示 アイコンも追加　-->
             <span class="post-date"></span>
             <span class="post-update"></span>
         </div>
+        <!-- ここまで --------------------------------------->
 
-        <!-- 目次とプロフィールをGrid　-->
-        <div class="main-head-grid">
-            <div class="toc-menu">
-                <input type="checkbox" id="toc-checkbox-2" hidden>
-                <label for="toc-checkbox-2" class="menu-label" aria-label="ページ内目次">
-                    目次<span class="toggle-text"><small>［閉じる］</small></span>
-                </label>
-                <div class="toc-content">
-                    <nav class="nav-1">
-                        <ul>
-                            <li><a href="#sec1">1. このサイトについて</a></li>
-                            <li><a href="#sec2">2. プログラミングの目的</a></li>
-                            <li><a href="#sec3">3. なぜプログラマー？</a></li>
-                            <li><a href="#sec4">4. 学習手順</a></li>
-                            <li><a href="#sec5">5. まとめ</a></li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-
-            <div class="profile-flex">
-                <div class="profile" id="sidebar">
-                    <div class="user-name"><img src="icon_img/java_sparrow.png" class="circle-user-icon" alt="ぼくのアイコン"
-                            width="60px">Soshi</div>
-                    <div class="profile-text">
-                        <p>高卒万年フリータの僕が完全未経験(ガチ)からプログラマーへ。<br>
-                            趣味はパソコンを自作したり多様なジャンルのゲームが好きで、今は距離をおいてプログラミング学習に励んでます。<br>
-                            転職活動中にプログラミングに特化した学校に通い勉強をしながら、独学でWeb制作もしてます！
-                        </p>
+        <div class="main-contener-grid">
+            <div class="main-grid">
+                <div class="toc-menu">
+                    <input type="checkbox" id="toc-checkbox-2" hidden>
+                    <label for="toc-checkbox-2" class="menu-label" aria-label="ページ内目次">
+                        目次<span class="toggle-text"><small>［閉じる］</small></span>
+                    </label>
+                    <div class="toc-content">
+                        <nav class="nav-1">
+                            <ul>
+                                <li><a href="#sec1">1. このサイトについて</a></li>
+                                <li><a href="#sec2">2. プログラミングの目的</a></li>
+                                <li><a href="#sec3">3. なぜプログラマー？</a></li>
+                                <li><a href="#sec4">4. 学習手順</a></li>
+                                <li><a href="#sec5">5. まとめ</a></li>
+                            </ul>
+                        </nav>
                     </div>
                 </div>
-            </div>
-        </div>
-        <!-- メインとサイドをグリッド分け -->
-        <div class="main-grid">
-            <div class="section-grid">
+
                 <!-- 下記より本章 -->
                 <section class="section" id="sec1">
                     <h2><span>1. このサイトについて</span></h2>
@@ -144,6 +131,7 @@
                         未経験から作成を始めたので、情報量や文章内容が浅いかもしれませんがご了承ください！！<br>
                         これからプログラミング学習を始める人や初学者が、少しでも学習マインドの参考にしていただけたらと思います！！
                     </p>
+                    <div style="width: 100%; height: 1px; background-color: #d3d3d3;"></div>
                 </section>
 
                 <section class="section" id="sec2">
@@ -157,6 +145,7 @@
                         Web開発は今後も需要があるため、まずはフロントエンド開発(Webサイトのデザインなど)に必要なHTML/CSS・JavaScriptコースがおすすめだと思います!<br>
                         学習始めに、Progateで軽くプログラミングのイメージを把握すると、後の学習にも活かせます!
                     </p>
+                    <div style="width: 100%; height: 1px; background-color: #d3d3d3;"></div>
                 </section>
 
                 <section class="section" id="sec3">
@@ -166,6 +155,7 @@
                         もちろん、プログラマーとして就職や転職後も学習を継続していくのは絶対に大事です！！最新の技術やトレンドの把握のためでもあり、
                         基本チーム開発がベースになると思いますので
                     </p>
+                    <div style="width: 100%; height: 1px; background-color: #d3d3d3;"></div>
                 </section>
 
                 <section class="section" id="sec4">
@@ -203,7 +193,8 @@
                     <div class="step">
                         <h3>4. まず作りたいシンプルなWebサービス（デザインなど）を考えプログラミングで作る</h3>
                         <p>興味関心のあるWebサイトやサービスを参考にしてみるのもアリです！</p>
-                        <p><strong>※重要：</strong>あまり凝ったデザインや技術スタックの多いWebサービスは避ける。技術力の高さや情報量の多さから、学習時間も増えて挫折に繋がります！</p>
+                        <p><strong>※重要：</strong>あまり凝ったデザインや技術スタックの多いWebサービスは避ける。技術力の高さや情報量の多さから、学習時間も増えて挫折に繋がります！
+                        </p>
                     </div>
                     <div class="step">
                         <p><strong>補足：</strong>情報を自分で調べて整理する力を身につけることも大事だと思います。</p>
@@ -211,6 +202,7 @@
                             ですが学習ツールやWebサービスを使いこなすことで、学習環境の改善や知識・経験不足を補い、より早くプログラミング技能を身につけることができると思いました!</p>
                         <p>上記の手順が必ずしも正しいとは限らないので、自分に合った学習方法で効率よく進めてください。</p>
                     </div>
+                    <div style="width: 100%; height: 1px; background-color: #d3d3d3;"></div>
                 </section>
 
                 <section class="section" id="sec5">
@@ -219,10 +211,24 @@
                         この作品を制作していく中で、プログラミング以外のことも学べたので良い経験になりました！<br>
                         今後の進展に合わせ、こちらのサイトを更新していけたらと思います。ありがとうございます！
                     </p>
+                    <div style="width: 100%; height: 1px; background-color: #d3d3d3;"></div>
                 </section>
             </div>
 
             <div class="said-grid">
+                <div class="profile-flex">
+                    <div class="profile" id="sidebar">
+                        <div class="user-name"><img src="icon_img/java_sparrow.png" class="circle-user-icon"
+                                alt="ぼくのアイコン" width="60px">YourName
+                        </div>
+                        <div class="profile-text">
+                            <p>高卒万年フリータの僕が完全未経験からプログラマーへ。<br>
+                                趣味はパソコンを自作したり多様なジャンルのゲームが好きで、今は距離をおいてプログラミング学習に励んでます。<br>
+                                転職活動中にプログラミングに特化した学校に通い勉強をしながら、独学でWeb制作もしてます！
+                            </p>
+                        </div>
+                    </div>
+                </div>
                 <!-- サイドバー最新記事 -->
                 <aside class="sidebar">
                     <div class="sidebar-content">
@@ -249,9 +255,11 @@
 
             <nav class="footer-nav">
                 <ul>
-                    <li class="navItem"><a href="pick_up.html" target="_blank" rel="noopener noreferrer">オススメ</a></li>
+                    <li class="navItem"><a href="pick_up.html" target="_blank" rel="noopener noreferrer">オススメ</a>
+                    </li>
                     <li class="navItem"><a href="#" target="_blank" rel="noopener noreferrer">ブログ</a></li>
-                    <li class="navItem"><a href="form.html" target="_blank" rel="noopener noreferrer">お問い合わせ</a></li>
+                    <li class="navItem"><a href="form.html" target="_blank" rel="noopener noreferrer">お問い合わせ</a>
+                    </li>
                 </ul>
             </nav>
 
