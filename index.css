@@ -9,6 +9,13 @@ body {
         "游ゴシック",
         "Meiryo",
         sans-serif;
+    background: linear-gradient(
+        to right,
+        #e6e6e6 0%,
+        #ffffff 25%,
+        #ffffff 75%,
+        #ececec 100%
+    );
 }
 
 /* -- header -- */
@@ -127,7 +134,17 @@ main {
 }
 
 .main-head-title h1 {
-    font-size: 2.5rem;
+    font-size: 2.5rem; 
+    box-sizing: border-box;
+    margin: auto; 
+}
+
+.text-gradient {
+    background: linear-gradient(90deg, #4f8cff 0%, #fc0c0c 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text; /* 一部ブラウザ用 */
+    color: transparent;
 }
 
 .main-contener-grid {
