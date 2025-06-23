@@ -14,41 +14,35 @@ body {
 /* -- header -- */
 header {
     width: 100%;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
     position: fixed; /* 画面固定 */
     z-index: 1000; /* 要素の重なり順（前後関係）を指定するプロパティ */
     top: 0;
-    /* left: 50%;                  /*画面が中央に固定されるように、*/
-    /* transform: translate(-50%); 　left:50%; tranlate(-50%)とする　 */
-    /* width: 80%; */
     background-color: white;
-    /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
-    /* position: relative; 親要素にrelativeを指定して、子要素にrelativeを指定することでその子要素を自由に配置できる。 */
     border-bottom: 1px solid #00000022;
 }
 
 .header {
     display: flex;
     /* 親要素に使う */
-    flex-direction: row;
-    justify-content: space-between;
+    /* flex-direction: row;　*/
+    justify-content: space-between; 
+    /* align-items: center;  垂直方向も中央揃え */
     width: 100%;
+    padding: 0 3rem;
 }
 
 .title-logo {
-    box-sizing: border-box;
-    margin-left: 200px;
-    width: clamp(160px, 20vw, 160px);
+    width: clamp(120px, 20vw, 160px);
     /* 最小値、理想値、最大値 */
 }
 
 .globalNav {
     width: 60%;
-    /* 横幅指定することで nav が狭くなるのを回避 */
     box-sizing: border-box;
     margin-top: 15px;
-    margin-right: 300px;
+    margin-right: auto;
+    margin-left: 5rem;
     white-space: nowrap;
 }
 
@@ -97,9 +91,9 @@ header {
     border: none;
     background-color: rgba(255, 255, 255, 0);
     box-sizing: border-box;
-    margin: 20px;
+    margin: 20px auto;
     width: 15rem;
-    margin-right: 20rem;
+    /* margin-right: 7rem; */
     white-space: nowrap;
 }
 
@@ -115,7 +109,6 @@ header {
 .button-cursor {
     cursor: pointer;
 }
-
 
 /* -- ここからmain -- */
 main {
@@ -247,7 +240,7 @@ p.menu {
 .section {
     scroll-margin-top: 100px; /* ヘッダーと重ならぬようにヘッダー分の間を作る */
     box-sizing: border-box;
-    padding-bottom: 3rem;
+    padding-bottom: 2rem;
 } 
 
 h2 {
@@ -282,7 +275,7 @@ footer {
     background-color: #d6d6d6ae;
     min-width: 1000px;
     /* min-width は CSS のプロパティで、要素の 最小幅（これ以上小さくならない幅） を指定するために使います。 */
-    padding-bottom: 2px;
+    padding-bottom: auto;
     /* footerの下の余白を埋める */
 }
 
@@ -291,7 +284,7 @@ footer {
     grid-template-columns: 1fr 1fr 1fr;
     flex: 0 0 auto;
     align-items: flex-start;
-    width: 70%;
+    width: 80%;
     margin-left: auto;
     margin-right: auto;
 }
@@ -302,7 +295,7 @@ footer {
 }
 
 .footer-title-logo {
-    width: clamp(160px, 20vw, 160px);
+    width: clamp(120px, 20vw, 160px);
     /* 最小値、理想値、最大値 */
 }
 
