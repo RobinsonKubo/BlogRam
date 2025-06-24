@@ -35,7 +35,6 @@ header {
 
 .header {
     display: flex;
-    /* 親要素に使う */
     /* flex-direction: row;　*/
     justify-content: space-between; 
     /* align-items: center;  垂直方向も中央揃え */
@@ -55,7 +54,7 @@ header {
     box-sizing: border-box;
     margin-top: 15px;
     margin-right: auto;
-    margin-left: 5rem;
+    margin-left: 1rem;
     white-space: nowrap;
 }
 
@@ -129,7 +128,7 @@ main {
     /* margin: 0 auto; */
     box-sizing: border-box;
     padding-bottom: 30px;
-    margin-top: 100px;
+    padding-top: 100px;
     /* ヘッダーと重ならないように指定 */
 }
 
@@ -141,7 +140,7 @@ main {
     width: 80%;
     margin-left: auto;
     margin-right: auto;
-    overflow-x: hidden; /* 追加：はみ出した部分を非表示に */
+    /*overflow-x: hidden;*/ /* 追加：はみ出した部分を非表示に */
 }
 
 .main-head-title h1 {
@@ -149,6 +148,12 @@ main {
     font-size: 2.8rem; 
     box-sizing: border-box;
     margin-left: 25%;
+}
+
+.bird-img {
+    width: 465px;
+    /* width: clamp(100%, 30vw, 100%); */
+    overflow-x: hidden; /* 追加：はみ出した部分を非表示に */
 }
 
 .text-gradient {
@@ -177,7 +182,7 @@ main {
     width: 45%;
     border: 1px solid #bdbdbd;
     box-sizing: border-box;
-    margin: 15px 0 0 10rem;
+    margin: 15px auto 0 auto;
     margin-bottom: 50px;
     padding-top: 15px;
 }
@@ -210,7 +215,7 @@ p.menu {
 }
 
 .profile-flex {
-    display: flex;
+    /* display: flex; */
     /* grid-column: 2; */
     /* カラムの配置指定　だが、
 	grid-template-columns: 2fr 1fr;のようにこちらで指定したほうが早い */
@@ -223,15 +228,19 @@ p.menu {
     box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.2);
 }
 
-.circle-user-icon {
-    border-radius: 50%; 
+.icon-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* user-nameの上下配置が隣のアイコンと均一になる */
+    gap: 15px;
+    box-sizing: border-box;
+    padding-top: 15px;
 }
 
-.user-name {
-    box-sizing: border-box;
-    margin-top: 1.6rem;
-    margin-left: 4rem;
-}  
+.circle-user-icon {
+    border-radius: 50%; 
+    border: 1px solid #d3d3d3;
+}
 
 .profile-text {
     box-sizing: border-box;
@@ -301,6 +310,7 @@ footer {
     /* footerの下の余白を埋める */
     /* box-sizing: border-box;
     bottom: 0; */
+    border-top: 1px solid #00000022;
 }
 
 .footer-container {
@@ -319,7 +329,7 @@ footer {
 } */
 
 .footer-title-logo {
-    width: clamp(120px, 20vw, 160px);
+    width: clamp(120px, 50vw, 160px);
     /* 最小値、理想値、最大値 */
 }
 
@@ -368,21 +378,29 @@ footer {
 /* WQHD width:2560p の半分 */
 @media screen and (max-width: 768px) {
     .main-head-title {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0; 
         width: 95%;
         margin-left: auto;
         margin-right: auto;
+        margin-top: -40px;
     }
 
     .main-head-title h1 {
         line-height: 45px;
         font-size: 2rem; 
-        box-sizing: border-box;
-        margin-left: auto;
+        /* box-sizing: border-box;*/
+        margin-left: auto; 
+        margin-right: auto; 
     }
 
     .bird-img {
-        max-width: 100%;
+        max-width: 55%;
         height: auto;
+        box-sizing: border-box;
+        margin-top: -15px;
     }
 
     .main-contener-grid {
@@ -396,7 +414,7 @@ footer {
     
     .toc-menu {
         box-sizing: border-box;
-        margin: -5px 0 5% 7.5rem;
+        margin: -5px auto 30px auto;
     }
 
     .menu-label {
