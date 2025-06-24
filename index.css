@@ -376,7 +376,7 @@ footer {
 
 /* -- レスポンシブ対応 --------------------------------- */
 /* WQHD width:2560p の半分 */
-@media screen and (max-width: 1170px) {
+@media screen and (max-width: 1280px) {
     .main-head-title {
         display: flex;
         flex-direction: column;
