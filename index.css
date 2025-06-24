@@ -366,7 +366,7 @@ footer {
 
 /* -- レスポンシブ対応 --------------------------------- */
 /* WQHD width:2560p の半分 */
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 768px) {
     .main-head-title {
         width: 95%;
         margin-left: auto;
@@ -396,7 +396,7 @@ footer {
     
     .toc-menu {
         box-sizing: border-box;
-        margin: -5px 0 5% 8rem;
+        margin: -5px 0 5% 7.5rem;
     }
 
     .menu-label {
