@@ -11,13 +11,6 @@ body {
         "游ゴシック",
         "Meiryo",
         sans-serif;
-    background: linear-gradient(
-        to right,
-        #e6e6e6 0%,
-        #ffffff 25%,
-        #ffffff 75%,
-        #ececec 100%
-    );
     margin: 0;
     padding: 0;
 }
@@ -27,8 +20,8 @@ header {
     width: 100%;
     margin: 0 auto;
     position: fixed; /* 画面固定 */
+    /* align-items: center; */
     z-index: 1000; /* 要素の重なり順（前後関係）を指定するプロパティ */
-    top: 0;
     background-color: white;
     border-bottom: 1px solid #00000022;
 }
@@ -50,9 +43,9 @@ header {
 }
 
 .globalNav {
-    width: 60%;
-    box-sizing: border-box;
-    margin-top: 15px;
+    width: 70%;
+    /* box-sizing: border-box; */
+    margin-top: auto;
     margin-right: auto;
     margin-left: 1rem;
     white-space: nowrap;
@@ -62,6 +55,7 @@ header {
     list-style: none;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .globalNav a {
@@ -87,7 +81,7 @@ header {
 .navItem {
     border-left: 2px solid #c7c7c7;
     text-align: center;
-    flex: 0 1 25%;
+    flex: 0 1 20%;
 }
 
 .navItem:last-of-type {
@@ -103,7 +97,7 @@ header {
     border: none;
     background-color: rgba(255, 255, 255, 0);
     box-sizing: border-box;
-    margin: 20px auto;
+    margin: 0 auto;
     width: 15rem;
     /* margin-right: 7rem; */
     white-space: nowrap;
@@ -130,14 +124,21 @@ main {
     padding-bottom: 30px;
     padding-top: 100px;
     /* ヘッダーと重ならないように指定 */
+    background: linear-gradient(
+        to right,
+        #e6e6e6 0%,
+        #ffffff 25%,
+        #ffffff 75%,
+        #ececec 100%
+    );
 }
 
 .main-head-title {
     display: grid;
     grid-template-columns: 1.2fr 1fr;
-    gap: 5%;
+    gap: 3%;
     flex-wrap: wrap; 
-    width: 80%;
+    width: 92%;
     margin-left: auto;
     margin-right: auto;
     /*overflow-x: hidden;*/ /* 追加：はみ出した部分を非表示に */
@@ -150,8 +151,10 @@ main {
     margin-left: 25%;
 }
 
+.br-pc { display: inline; }
+
 .bird-img {
-    width: 465px;
+    width: 500px;
     /* width: clamp(100%, 30vw, 100%); */
     overflow-x: hidden; /* 追加：はみ出した部分を非表示に */
 }
@@ -179,7 +182,7 @@ main {
 .toc-menu {
     /* white-space: nowrap; */
     grid-column: 1;
-    width: 45%;
+    width: 270px;
     border: 1px solid #bdbdbd;
     box-sizing: border-box;
     margin: 15px auto 0 auto;
@@ -248,7 +251,7 @@ p.menu {
 }
 
 .profile-text p {
-    line-height: 1.5;
+    line-height: 1.75;
 }
 
 .menu-label {
@@ -302,7 +305,7 @@ p {
 
 /* -- footer ------------------------------------------------- */
 footer {
-    background-color: #d6d6d667;
+    /* background-color: #d6d6d667; */
     margin-bottom: 0;
     /* min-width: 500px; */
     /* min-width は CSS のプロパティで、要素の 最小幅（これ以上小さくならない幅） を指定するために使います。 */
@@ -375,8 +378,13 @@ footer {
 
 
 /* -- レスポンシブ対応 --------------------------------- */
+@media screen and (max-width: 1364px) {
+     .bird-img {
+        width: 538px;
+    }
+}
 /* WQHD width:2560p の半分 */
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 1080px) {
     .main-head-title {
         display: flex;
         flex-direction: column;
@@ -396,12 +404,12 @@ footer {
         margin-right: auto; 
     }
 
-    .bird-img {
-        max-width: 55%;
+    /* .bird-img {
+        max-width: 57%;
         height: auto;
         box-sizing: border-box;
         margin-top: -15px;
-    }
+    } */
 
     .main-contener-grid {
         width: 95%;
@@ -413,6 +421,7 @@ footer {
     }
     
     .toc-menu {
+        width: 230px;
         box-sizing: border-box;
         margin: -5px auto 30px auto;
     }
@@ -425,7 +434,7 @@ footer {
     .toc-content {
         /* display: block; */
         box-sizing: border-box;
-        margin-left: 1rem;
+        margin-left: 1.2rem;
         margin-top: -15px;
         margin-bottom: -2px;
     }
@@ -462,3 +471,36 @@ footer {
 
 } 
 
+/* iPhone最大値440px指定 375pxが基本最小値これをベースにデザインするとレスポンシブOK (他メーカーのスマホも対応)*/
+@media screen and (max-width: 440px) {
+    .main-head-title {
+        position: relative;
+        margin-top: -10px;
+        overflow-x: hidden;
+    }
+    
+    .main-head-title h1 {
+        position: absolute;
+        /* font-size: 1.8rem; */
+        z-index: 999;
+        line-height: 1.8;
+    }
+
+    /* .br-pc { 
+        display: none; 
+        box-sizing: border-box;
+    } */
+
+    .bird-img {
+        /* position: absolute; */
+        width: 400px;
+        opacity: 48%;
+        margin-left: 8.5rem;
+    }
+
+    .toc-menu {
+        width: 60%;
+        box-sizing: border-box;
+        margin: -5px auto 30px auto; 
+    }
+}
