@@ -1,6 +1,8 @@
 ﻿@charset "UTF-8";
 html {
     scroll-behavior: smooth; /* おすすめ */
+    margin: 0;
+    padding: 0;
 }
 
 body {
@@ -16,6 +18,8 @@ body {
         #ffffff 75%,
         #ececec 100%
     );
+    margin: 0;
+    padding: 0;
 }
 
 /* -- header ------------------------------------------------ */
@@ -290,6 +294,7 @@ p {
 /* -- footer ------------------------------------------------- */
 footer {
     background-color: #d6d6d667;
+    margin-bottom: 0;
     /* min-width: 500px; */
     /* min-width は CSS のプロパティで、要素の 最小幅（これ以上小さくならない幅） を指定するために使います。 */
     /* padding-bottom: auto; */
@@ -375,10 +380,10 @@ footer {
         margin-left: auto;
     }
 
-    /* .bird-img {
+    .bird-img {
         max-width: 100%;
         height: auto;
-    } */
+    }
 
     .main-contener-grid {
         width: 95%;
@@ -391,7 +396,7 @@ footer {
     
     .toc-menu {
         box-sizing: border-box;
-        margin: -5px 0 30px 8rem;
+        margin: -5px 0 5% 8rem;
     }
 
     .menu-label {
@@ -438,3 +443,4 @@ footer {
     } 
 
 } 
+
