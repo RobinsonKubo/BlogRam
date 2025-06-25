@@ -17,9 +17,9 @@
         rel="stylesheet">
     <link rel="stylesheet" href="font_style.css">
     <!-- font-awesome アイコン CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        integrity="sha512-dppxU5HeG3N+etc..." crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="font-awesome/css/font-awesome.css">
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-        integrity="sha512-dppxU5HeG3N+etc..." crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
 
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta name="description" content="初学者からプロまでが集うブログサイト">
@@ -32,13 +32,19 @@
         <img src="icon_img/image_vector.svg" class="title-logo" alt="TitoleLogImage">
         <nav class="globalNav">
             <ul>
-                <li class="navItem navItem-1"><a href="#"><i class="fa fa-home" aria-hidden="true"></i>HOME</a></li>
+                <li class="navItem navItem-1"><a href="#"><i class="fa fa-home form-button" aria-hidden="true">&nbsp;ホーム</i></a></li>
                 <li class="navItem navItem-2"><a href="http://example.com" target="_blank" rel="noopener noreferrer">
-                        <i class="fa fa-hand-o-right" aria-hidden="true"></i>オススメ</a></li>
+                        <i class="fa fa-hand-o-right form-button" aria-hidden="true">&nbsp;オススメ</i></a></li>
                 <li class="navItem navItem-3"><a href="#" target="_blank" rel="noopener noreferrer">
-                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>ブログ</a></li>
-                <li class="navItem navItem-4"><button class="form-button button-cursor" onclick="openForm()"><i class="fa fa-envelope"
-                aria-hidden="true"></i>お問い合わせ</button></li>
+                        <i class="fa fa-pencil-square-o form-button" aria-hidden="true">&nbsp;ブログ</i></a></li>
+                <li class="navItem navItem-4" style="box-sizing: border-box; margin-bottom: 1px;">
+                    <button class="form-button" onclick="openForm()">
+                        <i class="fa fa-envelope form-button" aria-hidden="true">&nbsp;お問い合わせ</i>
+                            <!-- <span class="sp-off">お問い合わせ</span>
+                            <span class="pc-off">お問合せ</span>
+                        </i> -->
+                    </button>
+                </li>
             </ul>
         </nav>
 
@@ -117,7 +123,7 @@
                         目次<span class="toggle-text"><small>［閉じる］</small></span>
                     </label>
                     <div class="toc-content">
-                        <nav class="nav-1">
+                        <nav class="menu-nav">
                             <ul>
                                 <li><a href="#sec1">1. このサイトについて</a></li>
                                 <li><a href="#sec2">2. プログラミングの目的</a></li>
@@ -235,10 +241,12 @@
                 <div class="sidebar-content">
                     <h2><span>最新記事</span></h2>
                     <ul>
-                        <li><a href="#">記事タイトル1</a></li>
-                        <li><a href="#">記事タイトル2</a></li>
-                        <li><a href="#">記事タイトル3</a></li>
-                        <li><a href="#">記事タイトル4</a></li>
+                        <li><a class="side-content-1" href="#">記事タイトル1</a></li>
+                        <li><a class="side-content-2" href="#">記事タイトル2</a></li>
+                        <li><a class="side-content-3" href="#">記事タイトル3</a></li>
+                        <li><a class="side-content-4" href="#">記事タイトル4</a></li>
+                        <li><a class="side-content-5" href="#">記事タイトル5</a></li>
+                        <li><a class="side-content-6" href="#">記事タイトル6</a></li>
                     </ul>
                 </div>              
             </aside>
@@ -246,25 +254,22 @@
     </main>
 
     <footer class="footer">
-        <div class="footer-container">
-            <div class="block-footer-container">
-                <a href="#"><img src="icon_img/image_vector.svg" class="footer-title-logo" alt="タイトルロゴイメージ"
-                        width="50%"></a>
-                <p class="copyl"><small style="color: rgb(78, 78, 78);">©️ 2025 Soshi.</small></p>
-            </div>
-
-            <nav class="footer-nav">
-                <ul>
-                    <li class="navItem"><a href="pick_up.html" target="_blank" rel="noopener noreferrer">オススメ</a>
-                    </li>
-                    <li class="navItem"><a href="#" target="_blank" rel="noopener noreferrer">ブログ</a></li>
-                    <li class="navItem"><a href="form.html" target="_blank" rel="noopener noreferrer">お問い合わせ</a>
-                    </li>
-                </ul>
-            </nav>
-
-            <p class="top-back"><a href="#"><i class="fa fa-home" aria-hidden="true"></i>TOPへ</a></p>
+        <div class="block-footer-container">
+            <a href="#"><img src="icon_img/image_vector.svg" class="footer-title-logo" alt="タイトルロゴイメージ"
+                    width="50%"></a>
+            <p class="copyl"><small style="color: rgb(78, 78, 78);">©️ 2025 Soshi.</small></p>
         </div>
+
+        <nav class="footer-nav">
+            <ul>
+                <li class="navItem"><a href="#" target="_blank" rel="noopener noreferrer">利用規約</a></li>
+                <li class="navItem"><a href="pick_up.html" target="_blank" rel="noopener noreferrer">プライバシーポリシー</a></li>
+                <!-- <li class="navItem"><a href="form.html" target="_blank" rel="noopener noreferrer">お問い合わせ</a>
+                </li> -->
+            </ul>
+        </nav>
+
+        <div class="top-back"><a href="#"><i class="fa fa-home" aria-hidden="true"></i>TOPへ</a></div>  
     </footer>
 
     <!-- Java Script -->

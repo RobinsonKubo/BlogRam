@@ -13,6 +13,7 @@ body {
         sans-serif;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
 }
 
 /* -- header ------------------------------------------------ */
@@ -24,6 +25,7 @@ header {
     z-index: 1000; /* 要素の重なり順（前後関係）を指定するプロパティ */
     background-color: white;
     border-bottom: 1px solid #00000022;
+    /* overflow-x: hidden; */
 }
 
 .header {
@@ -63,30 +65,19 @@ header {
     font-size: 14px;
 }
 
-.globalNav a:hover {
-    text-decoration: underline;
-    text-decoration-color: #555555;
-    text-decoration-thickness: 2px;
-    /* 太さを変える */
-    text-underline-offset: 10px;
-    /* 文字と線の間を空ける */
-}
-
 .fa {
-    box-sizing: border-box;
-    margin-right: 2px;
     color: #343434;
 }
 
 .navItem {
-    border-left: 2px solid #c7c7c7;
+    border-left: 1px solid #c7c7c7;
     text-align: center;
     flex: 0 1 20%;
 }
 
 .navItem:last-of-type {
     /* 要素の最後一番右側にボーダーライン */
-    border-right: 2px solid #c7c7c7;
+    border-right: 1px solid #c7c7c7;
 }
 
 .navItem a {
@@ -95,26 +86,22 @@ header {
 
 .form-button {
     border: none;
-    background-color: rgba(255, 255, 255, 0);
-    box-sizing: border-box;
-    margin: 0 auto;
-    width: 15rem;
-    /* margin-right: 7rem; */
-    white-space: nowrap;
-}
+    background-color: #ffffff;
+} 
 
 .form-button:hover {
+    color: red;
     text-decoration: underline;
-    text-decoration-color: #555555;
+    text-decoration-color: red;
     text-decoration-thickness: 2px;
     /* 太さを変える */
     text-underline-offset: 10px;
     /* 文字と線の間を空ける */
-}
-
-.button-cursor {
     cursor: pointer;
 }
+
+.navItem .pc-off {display: none;}
+/* .navItem .sp-off {display: inline-block;} */
 
 /* -- ここからmain ------------------------------------------------- */
 main {
@@ -122,7 +109,7 @@ main {
     /* margin: 0 auto; */
     box-sizing: border-box;
     padding-bottom: 30px;
-    padding-top: 100px;
+    padding-top: 80px;
     /* ヘッダーと重ならないように指定 */
     background: linear-gradient(
         to right,
@@ -138,7 +125,7 @@ main {
     grid-template-columns: 1.2fr 1fr;
     gap: 3%;
     flex-wrap: wrap; 
-    width: 92%;
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
     /*overflow-x: hidden;*/ /* 追加：はみ出した部分を非表示に */
@@ -157,6 +144,7 @@ main {
     width: 500px;
     /* width: clamp(100%, 30vw, 100%); */
     overflow-x: hidden; /* 追加：はみ出した部分を非表示に */
+    box-sizing: border-box;
 }
 
 .text-gradient {
@@ -178,7 +166,7 @@ main {
     margin-left: auto;
     margin-right: auto;
 }
-
+/* 目次 --------------------------------------- */
 .toc-menu {
     /* white-space: nowrap; */
     grid-column: 1;
@@ -187,23 +175,36 @@ main {
     box-sizing: border-box;
     margin: 15px auto 0 auto;
     margin-bottom: 50px;
-    padding-top: 15px;
+    
 }
 
-p.menu {
-    text-align: center;
+.menu-label {
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    margin-top: 8px;
 }
 
-.nav-1 li {
+.toggle-text {
+    font-size: 0.9em;
+    margin-left: 8px;
+    color: #555;
+}
+
+.menu-nav li {
     line-height: 3;
 }
 
-.nav-1 a {
+.menu-nav a {
     text-decoration: none;
     color: black;
 }
 
-.nav-1 a:hover {
+.menu-nav a:hover {
     color: red; /* カーソルを合わせると文字色が変わる */
 }
 
@@ -218,11 +219,6 @@ p.menu {
 }
 
 .profile-flex {
-    /* display: flex; */
-    /* grid-column: 2; */
-    /* カラムの配置指定　だが、
-	grid-template-columns: 2fr 1fr;のようにこちらで指定したほうが早い */
-    /* そもそもHTMLのcrassの上下の配置で決めておく */
     border: 1px solid #bdbdbd;
     box-sizing: border-box;
     margin: 15px 10px 50px 10px;
@@ -254,25 +250,7 @@ p.menu {
     line-height: 1.75;
 }
 
-.menu-label {
-    /* 〜子要素の中央揃え〜 */
-    display: block;
-    /* 子要素に使う */
-    width: fit-content;
-    margin: 0 auto;
-    /* 〜ここまで〜 */
-    font-weight: bold;
-    cursor: pointer;
-    margin-bottom: 10px;
-    box-sizing: border-box;
-    margin-top: 8px;
-}
 
-.toggle-text {
-    font-size: 0.9em;
-    margin-left: 8px;
-    color: #555;
-}
 /* 〜ここまで〜 */
 
 /* ここから本章 */
@@ -301,6 +279,14 @@ p {
 .sidebar-content {
     line-height: 3;
 }
+
+.sidebar-content ul {
+    list-style: none;
+}
+
+.sidebar-content a {
+    text-decoration: none;
+}
 /* -- mainここまで -------------------------------------------- */
 
 /* -- footer ------------------------------------------------- */
@@ -316,20 +302,18 @@ footer {
     border-top: 1px solid #00000022;
 }
 
-.footer-container {
+.footer {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    flex: 0 0 auto;
-    align-items: flex-start;
+    grid-template-columns: 1fr 2fr 1fr;
+    /* flex: 0 0 auto; */
+    /* align-items: flex-start; */
     width: 80%;
     margin-left: auto;
     margin-right: auto;
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
 }
-
-/* .block-footer-container {
-    display: block;
-    margin-top: 5px;
-} */
 
 .footer-title-logo {
     width: clamp(120px, 50vw, 160px);
@@ -346,13 +330,12 @@ footer {
 }
 
 .footer-nav {
-    width: 100%;
-    /* min-width: 500px; */
+    width: 200%;
+    white-space: nowrap;
 }
 
 .footer-nav ul {
     list-style: none;
-    /* リストマーカーの削除(点や数字など) */
     display: flex;
     justify-content: center;
 }
@@ -362,18 +345,17 @@ footer {
     font-size: 14px;
 }
 
-.footer-nav a:hover {
-    text-decoration: underline;
-    text-decoration-color: #ebe8e8;
-    text-decoration-thickness: 2px;
-    text-underline-offset: 7px
-}
-
 .top-back {
+    width: 50%;
     box-sizing: border-box;
-    margin-top: -3px;
-    justify-self: end;
-    /* グリッド内のカラムを個別に右寄せ */
+    margin-top: -50px;
+    margin-right: auto;
+    margin-left: auto;
+    /* justify-self: end; グリッド内のカラムを個別に右寄せ */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
 }
 
 
@@ -383,8 +365,13 @@ footer {
         width: 538px;
     }
 }
+
 /* WQHD width:2560p の半分 */
 @media screen and (max-width: 1080px) {
+    .title-logo {
+        margin: 0 auto;
+    }
+
     .main-head-title {
         display: flex;
         flex-direction: column;
@@ -393,7 +380,6 @@ footer {
         width: 95%;
         margin-left: auto;
         margin-right: auto;
-        margin-top: -40px;
     }
 
     .main-head-title h1 {
@@ -427,8 +413,7 @@ footer {
     }
 
     .menu-label {
-        box-sizing: border-box;
-        margin-top: -5px;
+        margin-top: 10px;
     }
 
     .toc-content {
@@ -439,12 +424,12 @@ footer {
         margin-bottom: -2px;
     }
 
-    .nav-1 li {
+    .menu-nav li {
         line-height: 2.5;
     }
 
     .main-contener-grid {
-        grid-template-columns: 1fr; /* 縦1列にする */
+        grid-template-columns: 1fr;
     }
 
     h2 {
@@ -469,38 +454,193 @@ footer {
         padding-bottom: 0px;
     } 
 
+    .footer {
+        width: 100%;
+    }
+
+    .sidebar-content ul {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
 } 
 
 /* iPhone最大値440px指定 375pxが基本最小値これをベースにデザインするとレスポンシブOK (他メーカーのスマホも対応)*/
-@media screen and (max-width: 440px) {
+/* @media screen and (max-width: 768px) {
+    .header {
+        flex-direction: column;
+    }
+
+    .globalNav {
+        width: 100%;
+        margin-top: -10px;
+        margin-bottom: -17px;
+    }
+
+    .globalNav ul {
+        display: flex;
+        justify-content: center;
+    }
+
+    .globalNav ul li {
+        flex: 1 1 0;
+        min-width: 0;
+        text-align: center;
+        border-left: 1px solid #c7c7c7;
+        box-sizing: border-box;
+    }
+
+    .navItem {
+        flex: 1 1 0 !important;
+    }
+
+
+
+
+
+    main {
+        overflow-x: hidden;
+    } 
+
     .main-head-title {
         position: relative;
         margin-top: -10px;
-        overflow-x: hidden;
     }
     
     .main-head-title h1 {
         position: absolute;
-        /* font-size: 1.8rem; */
+  
         z-index: 999;
         line-height: 1.8;
     }
 
-    /* .br-pc { 
-        display: none; 
-        box-sizing: border-box;
-    } */
-
     .bird-img {
-        /* position: absolute; */
         width: 400px;
         opacity: 48%;
-        margin-left: 8.5rem;
+        margin-left: 8rem;
     }
 
     .toc-menu {
-        width: 60%;
         box-sizing: border-box;
         margin: -5px auto 30px auto; 
     }
+} */
+
+@media screen and (max-width: 440px) {
+    .header {
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+        flex: 1 1 100%;
+    }
+    
+    .title-logo {
+        margin: 0 auto;
+    }
+
+    .globalNav {
+        width: 100%;
+        margin: 0; 
+        padding: 0; 
+        margin: 0 auto -1px auto;
+        
+    }
+
+    .globalNav ul{
+        width: 140%;
+        /* display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr; */
+        box-sizing: border-box;
+        margin: 0 auto;
+        margin-left: -3.6rem;
+        margin-right: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        
+    }
+    
+    .globalNav ul li a,
+    .globalNav ul li button {
+        font-size: 12px;
+    }
+
+    .form-button {
+        width: 100%;
+        text-align: center;
+    }
+
+    .navItem {
+        border-left: none;
+    }
+    .navItem:last-of-type {
+        border-right: none;
+    }
+
+    .navItem .sp-off {display: none;}
+    .navItem .pc-off {display: inline-block;}
+    /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+    main {
+        overflow-x: hidden;
+    } 
+
+    .main-head-title {
+        position: relative;
+        margin-top: -10px;
+    }
+    
+    .main-head-title h1 {
+        position: absolute;
+        z-index: 999;
+        line-height: 1.8;
+    }
+
+    .bird-img {
+        width: 400px;
+        opacity: 48%;
+        margin-left: 8rem;
+    }
+
+    .toc-menu {
+        box-sizing: border-box;
+        margin: -5px auto 30px auto; 
+    }
+
+    .sidebar-content ul {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+/* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+    .footer {
+        width: 100%;
+        border-top: 1px solid #00000022;
+        display: grid;
+        grid-template-columns: 1fr;
+        padding-bottom: -50px;
+        margin-bottom: -50px;
+    }
+
+    .block-footer-container {
+        grid-row: 2/3;
+        grid-column: 1/3;
+        transform: scale(0.8);
+        margin: 0 auto;
+    }
+
+    .footer-nav {
+        grid-row: 1/2;
+        grid-column: 1/2;
+        transform: scale(0.8);
+        margin-left: -60%;
+    }
+
+    .top-back {
+        grid-row: 1/2;
+        grid-column: 2/3;
+        transform: scale(0.8);
+        margin-top: -20px;
+        margin-right: 30px;
+    }
+
+    li .side-content-5, li .side-content-6{ display: none; }
 }
