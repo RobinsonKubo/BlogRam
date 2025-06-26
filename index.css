@@ -105,12 +105,9 @@ header {
 
 /* -- ここからmain ------------------------------------------------- */
 main {
-    /* width: 80%; */
-    /* margin: 0 auto; */
     box-sizing: border-box;
     padding-bottom: 30px;
     padding-top: 80px;
-    /* ヘッダーと重ならないように指定 */
     background: linear-gradient(
         to right,
         #e6e6e6 0%,
@@ -168,14 +165,11 @@ main {
 }
 /* 目次 --------------------------------------- */
 .toc-menu {
-    /* white-space: nowrap; */
     grid-column: 1;
     width: 270px;
     border: 1px solid #bdbdbd;
     box-sizing: border-box;
-    margin: 15px auto 0 auto;
-    margin-bottom: 50px;
-    
+    margin: 15px auto 50px auto;
 }
 
 .menu-label {
@@ -209,13 +203,14 @@ main {
 }
 
 .toc-content {
-    display: block;
     margin-left: 2rem;
     margin-top: -0.5rem;
+    /* transition: max-height 0.5s ease; */
 }
 
 #toc-checkbox-2:checked+.menu-label+.toc-content {
     display: none;
+    max-height: 500px;
 }
 
 .profile-flex {
@@ -249,12 +244,9 @@ main {
 .profile-text p {
     line-height: 1.75;
 }
-
-
 /* 〜ここまで〜 */
 
 /* ここから本章 */
-
 .section {
     scroll-margin-top: 100px; /* ヘッダーと重ならぬようにヘッダー分の間を作る */
     box-sizing: border-box;
@@ -293,12 +285,7 @@ p {
 footer {
     /* background-color: #d6d6d667; */
     margin-bottom: 0;
-    /* min-width: 500px; */
-    /* min-width は CSS のプロパティで、要素の 最小幅（これ以上小さくならない幅） を指定するために使います。 */
-    /* padding-bottom: auto; */
-    /* footerの下の余白を埋める */
-    /* box-sizing: border-box;
-    bottom: 0; */
+    padding-bottom: auto;
     border-top: 1px solid #00000022;
 }
 
@@ -390,13 +377,6 @@ footer {
         margin-right: auto; 
     }
 
-    /* .bird-img {
-        max-width: 57%;
-        height: auto;
-        box-sizing: border-box;
-        margin-top: -15px;
-    } */
-
     .main-contener-grid {
         width: 95%;
         margin-left: auto;
@@ -417,7 +397,6 @@ footer {
     }
 
     .toc-content {
-        /* display: block; */
         box-sizing: border-box;
         margin-left: 1.2rem;
         margin-top: -15px;
@@ -547,8 +526,6 @@ footer {
 
     .globalNav ul{
         width: 140%;
-        /* display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr; */
         box-sizing: border-box;
         margin: 0 auto;
         margin-left: -3.6rem;
@@ -556,8 +533,6 @@ footer {
         display: flex;
         align-items: center;
         justify-content: center;
-        
-        
     }
     
     .globalNav ul li a,

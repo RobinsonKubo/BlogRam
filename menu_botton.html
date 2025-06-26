@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        integrity="sha512-dppxU5HeG3N+etc..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.css">
+  <title>ラグのない開閉アニメ付き目次</title>
+  <style>
+    .toc-menu { 
+        width: 270px;
+        border: 1px solid #bdbdbd;
+        box-sizing: border-box;
+        margin: 15px auto 50px auto;
+        overflow: hidden;
+    }
+
+    .toc-button {
+        cursor: pointer;
+        border-style: none;
+        font-size: 130%;
+    }
+
+    .toc-button:hover {
+        color: red;
+    }
+
+    .fa-caret-up,
+    .fa-caret-down {
+        margin-top: 1px;
+    }
+
+    .toc-content {
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.3s ease;
+      background: #fafafa;
+      padding: 0 10px;
+      margin: 10px auto 10px auto;
+    }
+
+    .toc-content.open {
+      max-height: 500px; /* アニメーションの滑らかさを保つため一旦 max-height を大きめに */
+    }
+/* メニューの項目にアニメーションをつけるーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+    .toc-content li {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.4s cubic-bezier(.4,0,.2,1), transform 0.4s cubic-bezier(.4,0,.2,1);
+    }
+
+    .toc-content.open li {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    /* 順番に遅延させる */
+    .toc-content.open li:nth-child(1) { transition-delay: 0.05s; }
+    .toc-content.open li:nth-child(2) { transition-delay: 0.10s; }
+    .toc-content.open li:nth-child(3) { transition-delay: 0.15s; }
+    .toc-content.open li:nth-child(4) { transition-delay: 0.20s; }
+    .toc-content.open li:nth-child(5) { transition-delay: 0.25s; }
+/* ーーここまでーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+
+    .toc-content ul {
+      list-style: none;
+      padding: 12px 0;
+      margin: 0;
+    }
+
+    .menu-label {
+        display: flex;
+        width: fit-content;
+        margin: 0 auto;
+        font-weight: bold;
+        cursor: pointer;
+        margin-bottom: 6px;
+        margin-top: 8px;
+    }
+
+    .toc-content {
+        margin-left: 2rem;
+        margin-top: -0.5rem;
+        transition: max-height 0.5s ease;
+    }
+
+    .menu-nav li {
+        line-height: 3;
+    }
+
+    .menu-nav a {
+        text-decoration: none;
+        color: black;
+    }
+
+    .menu-nav a:hover {
+        color: red; 
+    }
+  </style>
+</head>
+<body>
+
+<div class="toc-menu">
+    <div class="menu-label" aria-label="ページ内目次">
+        <div>目次</div>
+        <button class="toc-button" id="toc-toggle"><i class="fa-solid fa-caret-down"></i></button>
+    </div>
+    <div class="toc-content" id="toc-content">
+        <nav class="menu-nav">
+            <ul>
+                <li><a href="#sec1">1. このサイトについて</a></li>
+                <li><a href="#sec2">2. プログラミングの目的</a></li>
+                <li><a href="#sec3">3. なぜプログラマー？</a></li>
+                <li><a href="#sec4">4. 学習手順</a></li>
+                <li><a href="#sec5">5. まとめ</a></li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+<!-- セクション例 -->
+<!-- <div id="sec1"><h2>はじめに</h2><p>...</p></div>
+<div id="sec2"><h2>基本構成</h2><p>...</p></div>
+<div id="sec3"><h2>CSSアニメーション</h2><p>...</p></div>
+<div id="sec4"><h2>応用編</h2><p>...</p></div>
+<div id="sec5"><h2>まとめ</h2><p>...</p></div> -->
+
+<script>
+  const toggleBtn = document.getElementById('toc-toggle');
+  const toc = document.getElementById('toc-content');
+  let isOpen = false;
+
+  toggleBtn.addEventListener('click', () => {
+    if (isOpen) {
+      // 閉じる
+      toc.style.maxHeight = toc.scrollHeight + 'px'; // 一度セットしないとtransition効かない
+      requestAnimationFrame(() => {
+        toc.style.maxHeight = '0';
+        toc.classList.remove('open');
+      });
+      toggleBtn.innerHTML = '<i class="fa-solid fa-caret-down"></i>';
+    } else {
+      // 開く
+      toc.classList.add('open');
+      toc.style.maxHeight = toc.scrollHeight + 'px';
+      toggleBtn.innerHTML = '<i class="fa-solid fa-caret-up margin-up"></i>';
+    }
+    isOpen = !isOpen;
+  });
+
+  // 開いた後に max-height を固定解除（中身増減への対応）
+  toc.addEventListener('transitionend', () => {
+    if (isOpen) {
+      toc.style.maxHeight = 'none';
+    }
+  });
+</script>
+
+</body>
+</html>

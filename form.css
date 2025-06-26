@@ -64,9 +64,12 @@
 }
 
 .close-btn {
-    top: 10px;
-    right: 10px;
-    font-size: 20px;
+    display: block;
+    width: 8%;
+    box-sizing: border-box;
+    margin: 0 auto auto 0;
+    padding-left: 7px;
+    font-size: 150%;
     border-radius: 3px;
     background-color: rgb(79, 79, 255); 
     color: white;
