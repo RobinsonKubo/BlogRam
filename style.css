@@ -46,7 +46,6 @@ header {
 
 .globalNav {
     width: 70%;
-    /* box-sizing: border-box; */
     margin-top: auto;
     margin-right: auto;
     margin-left: 1rem;
@@ -163,7 +162,7 @@ main {
     margin-left: auto;
     margin-right: auto;
 }
-/* 目次 --------------------------------------- */
+/* 目次 あとで変更する --------------------------------------- */
 .toc-menu {
     grid-column: 1;
     width: 270px;
@@ -199,7 +198,7 @@ main {
 }
 
 .menu-nav a:hover {
-    color: red; /* カーソルを合わせると文字色が変わる */
+    color: red; 
 }
 
 .toc-content {
@@ -212,7 +211,7 @@ main {
     display: none;
     max-height: 500px;
 }
-
+/* ーーここまでーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
 .profile-flex {
     border: 1px solid #bdbdbd;
     box-sizing: border-box;
@@ -292,13 +291,10 @@ footer {
 .footer {
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
-    /* flex: 0 0 auto; */
-    /* align-items: flex-start; */
     width: 80%;
     margin-left: auto;
     margin-right: auto;
     display: flex;
-    /* align-items: center; */
     justify-content: center;
 }
 
@@ -311,9 +307,7 @@ footer {
     box-sizing: border-box;
     margin-left: 28px;
     margin-top: -13px;
-    /* マージンで上に上げる */
     white-space: nowrap;
-    /* 文字を折り返さないようにする */
 }
 
 .footer-nav {
@@ -338,22 +332,19 @@ footer {
     margin-top: -50px;
     margin-right: auto;
     margin-left: auto;
-    /* justify-self: end; グリッド内のカラムを個別に右寄せ */
     display: flex;
     align-items: center;
     justify-content: center;
     white-space: nowrap;
 }
 
-
-/* -- レスポンシブ対応 --------------------------------- */
+/* -- レスポンシブ対応 --------------------------------------------------- */
 @media screen and (max-width: 1364px) {
      .bird-img {
         width: 538px;
     }
 }
 
-/* WQHD width:2560p の半分 */
 @media screen and (max-width: 1080px) {
     .title-logo {
         margin: 0 auto;
@@ -381,7 +372,6 @@ footer {
         width: 95%;
         margin-left: auto;
         margin-right: auto;
-        /* 上記のgridのgap7%がそのまま反映されるのでgapを０か丁度よい幅にする */
         grid-template-columns: 1fr;
         gap: 0; 
     }
@@ -443,67 +433,7 @@ footer {
     }
 } 
 
-/* iPhone最大値440px指定 375pxが基本最小値これをベースにデザインするとレスポンシブOK (他メーカーのスマホも対応)*/
-/* @media screen and (max-width: 768px) {
-    .header {
-        flex-direction: column;
-    }
-
-    .globalNav {
-        width: 100%;
-        margin-top: -10px;
-        margin-bottom: -17px;
-    }
-
-    .globalNav ul {
-        display: flex;
-        justify-content: center;
-    }
-
-    .globalNav ul li {
-        flex: 1 1 0;
-        min-width: 0;
-        text-align: center;
-        border-left: 1px solid #c7c7c7;
-        box-sizing: border-box;
-    }
-
-    .navItem {
-        flex: 1 1 0 !important;
-    }
-
-
-
-
-
-    main {
-        overflow-x: hidden;
-    } 
-
-    .main-head-title {
-        position: relative;
-        margin-top: -10px;
-    }
-    
-    .main-head-title h1 {
-        position: absolute;
-  
-        z-index: 999;
-        line-height: 1.8;
-    }
-
-    .bird-img {
-        width: 400px;
-        opacity: 48%;
-        margin-left: 8rem;
-    }
-
-    .toc-menu {
-        box-sizing: border-box;
-        margin: -5px auto 30px auto; 
-    }
-} */
-
+/* iPhone最大値440px指定。 基本最小値375pxをベースにデザインするとレスポンシブOK (他メーカーのスマホも対応) */
 @media screen and (max-width: 440px) {
     .header {
         width: 100%;
