@@ -61,11 +61,11 @@
                         <p class="form-action-p"><strong>お問い合わせフォーム</strong></p>
                         <label class="form-label form-user-name" for="userName" aria-hidden="true"></label>
                         <input class="input-width input-height" type="text" id="userName" name="userName"
-                            placeholder="お名前*" required>
+                            placeholder="  お名前*" required>
 
                         <label class="form-label form-email" for="email" aria-hidden="true"></label>
                         <input class="input-width input-height" type="text" id="email" name="email"
-                            placeholder="メールアドレス*" required>
+                            placeholder="  メールアドレス*" required>
 
                         <div class="job-radio">
                             <p>ご職業：</p>
@@ -82,17 +82,17 @@
 
                         <label class="form-label" for="subject" aria-hidden="true"></label>
                         <input class="input-width input-height" type="text" id="subject" name="subject" maxlength="40"
-                            placeholder="件名*" required>
+                            placeholder="  件名*" required>
 
                         <label class="form-label" for="message" aria-hidden="true"></label>
                         <textarea class="textarea-width" type="text" id="message" name="message" rows="6"
-                            maxlength="250" placeholder="お問い合わせ内容※250字以内*"></textarea>
+                            maxlength="250" placeholder="  お問い合わせ内容※250字以内*"></textarea>
 
                         <button class="submit button-cursor" type="submit">送信</button>
                     </form>
 
                     <p class="form-note"><small>※こちらのサイトは個人で運営しておりますので、<br>
-                            　 回答にお時間をいただく場合がございます。</small></p>
+                              　回答にお時間をいただく場合がございます。</small></p>
                 </div>
             </div>
         </div>
@@ -119,11 +119,11 @@
         <div class="main-contener-grid">
             <div class="main-grid">
                 <div class="toc-menu">
-                    <input type="checkbox" id="toc-checkbox-2" hidden>
-                    <label for="toc-checkbox-2" class="menu-label" aria-label="ページ内目次">
-                        目次<span class="toggle-text"><small>［閉じる］</small></span>
-                    </label>
-                    <div class="toc-content">
+                    <div class="menu-label" aria-label="ページ内目次">
+                        <div>目次</div>
+                        <button class="toc-button" id="toc-toggle"><i class="fa-solid fa-caret-down"></i></button>
+                    </div>
+                    <div class="toc-content" id="toc-content">
                         <nav class="menu-nav">
                             <ul>
                                 <li><a href="#sec1">1. このサイトについて</a></li>
@@ -265,15 +265,14 @@
             <ul>
                 <li class="navItem"><a href="#" target="_blank" rel="noopener noreferrer">利用規約</a></li>
                 <li class="navItem"><a href="pick_up.html" target="_blank" rel="noopener noreferrer">プライバシーポリシー</a></li>
-                <!-- <li class="navItem"><a href="form.html" target="_blank" rel="noopener noreferrer">お問い合わせ</a>
-                </li> -->
+                <!-- <li class="navItem"><a href="form.html" target="_blank" rel="noopener noreferrer">お問い合わせ</a></li> -->
             </ul>
         </nav>
 
         <div class="top-back"><a href="#"><i class="fa fa-home" aria-hidden="true"></i>TOPへ</a></div>  
     </footer>
 
-    <!-- Java Script -->
+    <!-- Java Script パス -->
     <script src="common.js"></script>
 
 </body>

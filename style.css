@@ -31,8 +31,10 @@ header {
 .header {
     display: flex;
     /* flex-direction: row;　*/
-    justify-content: space-between; 
+    /* justify-content: space-between;  */
     /* align-items: center;  垂直方向も中央揃え */
+    justify-content: center; 
+    align-items: center; 
     width: 100%;
     padding: 0 3rem;
 }
@@ -41,7 +43,7 @@ header {
     width: clamp(120px, 20vw, 160px);
     /* 最小値、理想値、最大値 */
     box-sizing: border-box;
-    margin-left: 10%;
+    margin: 0 auto;
 }
 
 .globalNav {
@@ -162,30 +164,80 @@ main {
     margin-left: auto;
     margin-right: auto;
 }
-/* 目次 あとで変更する --------------------------------------- */
-.toc-menu {
-    grid-column: 1;
+/* -- 目次 --------------------------------------- */
+.toc-menu { 
     width: 270px;
     border: 1px solid #bdbdbd;
     box-sizing: border-box;
     margin: 15px auto 50px auto;
+    overflow: hidden;
+}
+
+.toc-button {
+    cursor: pointer;
+    border-style: none;
+    font-size: 130%;
+}
+
+.toc-button:hover {
+    color: red;
+}
+
+.fa-caret-up,
+.fa-caret-down {
+    margin-top: 1px;
+}
+
+.toc-content {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.3s ease;
+    background: #fafafa;
+    padding: 0 10px;
+    margin: 10px auto 10px auto;
+}
+
+.toc-content.open {
+    max-height: 500px; /* アニメーションの滑らかさを保つため一旦 max-height を大きめに */
+}
+/* メニューの項目にアニメーションをつけるーーーーーーーーーーーーーーーーーー */
+.toc-content li {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.4s cubic-bezier(.4,0,.2,1), transform 0.4s cubic-bezier(.4,0,.2,1);
+}
+
+.toc-content.open li {
+    opacity: 1;
+    transform: translateY(0);
+}
+/* 順番に遅延させる */
+.toc-content.open li:nth-child(1) { transition-delay: 0.05s; }
+.toc-content.open li:nth-child(2) { transition-delay: 0.10s; }
+.toc-content.open li:nth-child(3) { transition-delay: 0.15s; }
+.toc-content.open li:nth-child(4) { transition-delay: 0.20s; }
+.toc-content.open li:nth-child(5) { transition-delay: 0.25s; }
+/* ーーここまでーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+.toc-content ul {
+    list-style: none;
+    padding: 12px 0;
+    margin: 0;
 }
 
 .menu-label {
-    display: block;
+    display: flex;
     width: fit-content;
     margin: 0 auto;
     font-weight: bold;
     cursor: pointer;
-    margin-bottom: 10px;
-    box-sizing: border-box;
+    margin-bottom: 6px;
     margin-top: 8px;
 }
 
-.toggle-text {
-    font-size: 0.9em;
-    margin-left: 8px;
-    color: #555;
+.toc-content {
+    margin-left: 2rem;
+    margin-top: -0.5rem;
+    transition: max-height 0.5s ease;
 }
 
 .menu-nav li {
@@ -199,17 +251,6 @@ main {
 
 .menu-nav a:hover {
     color: red; 
-}
-
-.toc-content {
-    margin-left: 2rem;
-    margin-top: -0.5rem;
-    /* transition: max-height 0.5s ease; */
-}
-
-#toc-checkbox-2:checked+.menu-label+.toc-content {
-    display: none;
-    max-height: 500px;
 }
 /* ーーここまでーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
 .profile-flex {
@@ -347,7 +388,18 @@ footer {
 
 @media screen and (max-width: 1080px) {
     .title-logo {
-        margin: 0 auto;
+        margin: 0;
+    }
+
+    .globalNav {
+        /* 画面縮小時に要素が重ならないようにする */
+        width: auto;
+        margin: auto auto 0 auto; 
+    }
+
+    .globalNav li {
+        /* これは重要 */
+        flex: 0 0 6rem; 
     }
 
     .main-head-title {
@@ -375,11 +427,12 @@ footer {
         grid-template-columns: 1fr;
         gap: 0; 
     }
-    
+/* ーーあとで修正するーーーーーーーーーーーーーーーーーーーーーーーーーーー */
     .toc-menu {
         width: 230px;
         box-sizing: border-box;
         margin: -5px auto 30px auto;
+        padding-bottom: 18px;
     }
 
     .menu-label {
@@ -396,6 +449,7 @@ footer {
     .menu-nav li {
         line-height: 2.5;
     }
+/* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
 
     .main-contener-grid {
         grid-template-columns: 1fr;
@@ -431,10 +485,19 @@ footer {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
     }
+
+    .block-footer-container {
+        margin-left: 1rem;
+    }
+
+    .footer-nav li {
+        flex: 0 0 6rem;
+    }
+
 } 
 
 /* iPhone最大値440px指定。 基本最小値375pxをベースにデザインするとレスポンシブOK (他メーカーのスマホも対応) */
-@media screen and (max-width: 440px) {
+@media screen and (max-width: 554px) {
     .header {
         width: 100%;
         flex-direction: column;
@@ -448,42 +511,47 @@ footer {
 
     .globalNav {
         width: 100%;
-        margin: 0; 
-        padding: 0; 
-        margin: 0 auto -1px auto;
-        
-    }
-
-    .globalNav ul{
-        width: 140%;
-        box-sizing: border-box;
-        margin: 0 auto;
-        margin-left: -3.6rem;
-        margin-right: auto;
+        margin: 0 auto 3px auto; 
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: center; 
+    }
+
+    .globalNav ul {
+        width: 100%;
+        margin: 0;
+        /* margin-left: -3.6rem;
+        margin-right: auto; */
+        /* display: flex;
+        align-items: center; */
+        justify-content: center; 
     }
     
+    .globalNav li {
+        /* これは重要 */
+        flex: 0 0 80px; 
+    }
+
     .globalNav ul li a,
     .globalNav ul li button {
         font-size: 12px;
     }
 
-    .form-button {
-        width: 100%;
-        text-align: center;
-    }
-
     .navItem {
         border-left: none;
     }
+
     .navItem:last-of-type {
         border-right: none;
     }
 
     .navItem .sp-off {display: none;}
     .navItem .pc-off {display: inline-block;}
+
+    .form-button:hover {
+        text-decoration: none; 
+    }
+
     /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
     main {
         overflow-x: hidden;
