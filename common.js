@@ -6,14 +6,12 @@ const revealCommon = {
     easing: 'ease-in-out', // 自然な加速・減速の動き
     reset: false,     // スクロールで何度もアニメーションさせたい場合はtrue
 };
-
 // 適用対象と個別設定の配列
 const revealTargets = [
-    { selector: '.fade-in-up',     options: { origin: 'left',   delay: 0   } }, // origin 左から右へ
-    { selector: '.fade-in-up2',    options: { origin: 'right',  delay: 600 } }, // delay 開始までの遅延（ミリ秒）
-    { selector: '.fade-profile',   options: { duration: 1500, origin: 'bottom', delay: 0   } }
+    { selector: '.fade-in-up', options: { origin: 'left', delay: 0 } }, // origin 左から右へ
+    { selector: '.fade-in-up2', options: { origin: 'right', delay: 600 } }, // delay 開始までの遅延（ミリ秒）
+    { selector: '.fade-profile', options: { duration: 1500, origin: 'bottom', delay: 0 } }
 ];
-
 // ループで一括適用
 revealTargets.forEach(({ selector, options }) => {
     ScrollReveal().reveal(selector, { ...revealCommon, ...options });
@@ -37,26 +35,25 @@ const toc = document.getElementById('toc-content');
 let isOpen = false;
 
 toggleBtn.addEventListener('click', () => {
-if (isOpen) {
-    // 閉じる
-    toc.style.maxHeight = toc.scrollHeight + 'px'; // 一度セットしないとtransition効かない
-    requestAnimationFrame(() => {
-    toc.style.maxHeight = '0';
-    toc.classList.remove('open');
-    });
-    toggleBtn.innerHTML = '<i class="fa-solid fa-caret-down"></i>';
-} else {
-    // 開く
-    toc.classList.add('open');
-    toc.style.maxHeight = toc.scrollHeight + 'px';
-    toggleBtn.innerHTML = '<i class="fa-solid fa-caret-up margin-up"></i>';
-}
-isOpen = !isOpen;
+    if (isOpen) {
+        // 閉じる
+        toc.style.maxHeight = toc.scrollHeight + 'px'; // 一度セットしないとtransition効かない
+        requestAnimationFrame(() => {
+            toc.style.maxHeight = '0';
+            toc.classList.remove('open');
+        });
+        toggleBtn.innerHTML = '<i class="fa-solid fa-caret-down"></i>';
+    } else {
+        // 開く
+        toc.classList.add('open');
+        toc.style.maxHeight = toc.scrollHeight + 'px';
+        toggleBtn.innerHTML = '<i class="fa-solid fa-caret-up margin-up"></i>';
+    }
+    isOpen = !isOpen;
 });
-
-// 開いた後に max-height を固定解除（開閉時のラグへの対応）
+// 開いた後に max-height を固定解除することで開閉時のラグへの対応（項目が増減した場合に有効）
 toc.addEventListener('transitionend', () => {
-if (isOpen) {
-    toc.style.maxHeight = 'none';
-}
+    if (isOpen) {
+        toc.style.maxHeight = 'none';
+    }
 });

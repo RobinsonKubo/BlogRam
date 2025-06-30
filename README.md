@@ -11,7 +11,7 @@
     <li>ログイン認証：Firebase Authentication ※Google認証のみ</li>
     <li>Dockerの構成：PHP/Laravel/MySQL/Nginx ※Nginx→Apacheも検討</li>
     <li>API通信：JavaScript fetch() ※認証情報も含めて送信</li>
-        <p>コメント投稿/取得</p>
+        <p>コメント投稿/取得 ※ログインアカウントのみコメント可能</p>
     <li>コメント機能：Laravel API/MySQL ※Firebase認証との連携</li>
 </ol>
 
