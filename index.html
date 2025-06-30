@@ -11,22 +11,25 @@
     <!-- Google日本語フォント -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
     <!-- Googleフォント -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="font_style.css">
-    <!-- font-awesome アイコン CDN -->
+    <link rel="stylesheet" href="font_style.css"> -->
+    <!-- font-awesome アイコン CDN あまりCDNの重複はよろしくないのでできるだけどちらかに絞る -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
         integrity="sha512-dppxU5HeG3N+etc..." crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="font-awesome/css/font-awesome.css">
+    <!-- ScrollReveal.js CDN -->
+    <script src="https://unpkg.com/scrollreveal"></script>
 
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta name="description" content="初学者からプロまでが集うブログサイト">
     <meta name="robots" content="noindex.nofollow" />
     <title>BlogRam</title>
 </head>
+
 
 <body>
     <header class="header">
@@ -40,7 +43,7 @@
                         <i class="fa fa-pencil-square-o form-button" aria-hidden="true">&nbsp;ブログ</i></a></li>
                 <!-- 問い合わせフォームのへのアクセス -->
                 <li class="navItem navItem-4" style="box-sizing: border-box; margin-bottom: 1px;">
-                    <button class="form-button" onclick="openForm()">
+                    <button class="form-button" id="openFormBtn" onclick="openForm()">
                         <i class="fa fa-envelope form-button" aria-hidden="true">&nbsp;お問い合わせ</i>
                     </button>
                 </li>
@@ -50,7 +53,7 @@
         <!-- 下記より問い合せページへ ----------------------------------------------------------------------------------------->
         <div class="form-container" id="formPopup">
             <div class="form-box">
-                <span class="close-btn button-cursor" onclick="closeForm()">×</span>
+                <span class="close-btn button-cursor" id="closeFormBtn" onclick="closeForm()">×</span>
                 <div class="form-block">
                     <form class="form-action" action="proglam.php">
                         <p class="form-action-p"><strong>お問い合わせフォーム</strong></p>
@@ -95,12 +98,15 @@
     </header>
     
     <main class="mainContent">
+        <!-- メインの見出し --------------------------------------------------------------------------->
         <div class="main-head-title">
-            <h1><span class="text-gradient">Hello World！</span>
-                <span class="br-pc"><br></span>さらに充実した、<span class="br-pc"><br></span>
-                <span class="text-gradient">プログラミングライフ</span>へ
-            </h1>
-            <img src="icon_img/java_sparrow.png" class="bird-img" alt="文鳥の写真だよ" >
+            <div class="fade-in-up">
+                <h1><span class="text-gradient">Hello World！</span>
+                    <span class="br-pc"><br></span>さらに充実した、<span class="br-pc"><br></span>
+                    <span class="text-gradient">プログラミングライフ</span>へ
+                </h1>
+            </div>
+            <img src="icon_img/java_sparrow.png" class="bird-img fade-in-up2" alt="文鳥の写真だよ" >
         </div>
         <div style="width: 100%; height: 1px; background-color: #d3d3d3;"></div>
         <!-- ブログサイトは更新日の表示は非常に重要 あとで追加-->
@@ -108,8 +114,8 @@
             <span class="post-date"></span>
             <span class="post-update"></span>
         </div>
-        <!-- ここまで ---------------------------------------------------------------------------------------------------------->
 
+        <!-- ここからメインの内容 ----------------------------------------------------------------------------------------->
         <div class="main-contener-grid">
             <div class="main-grid">
                 <div class="toc-menu">
@@ -130,7 +136,7 @@
                     </div>
                 </div>
 
-                <!-- 下記より本章 -->
+                <!-- ここから本章 -------------------------------------------------------------------------------------------->
                 <section class="section" id="sec1">
                     <h2><span>1. このサイトについて</span></h2>
                     <p>
@@ -213,9 +219,10 @@
                     </p>
                 </section>
             </div>
-            <!-- ここからサイドバー ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー-->
+
+            <!-- ここからサイドバー ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー-->
             <aside class="aside-grid"> 
-                <div class="profile profile-flex" id="sidebar">
+                <div class="profile profile-flex fade-profile" id="sidebar">
                     <div class="icon-flex">
                         <img src="icon_img/god_man.png" class="circle-user-icon" alt="ぼくのアイコン" width="60px">
                         <div class="user-name">GoodMan</div>
@@ -228,7 +235,19 @@
                         </p>
                     </div>
                 </div>
-                <!-- サイドバー最新記事 -->
+            <!---テスト---------------------------------------------------------------------------------------------->
+                <div class="sidebar-content">
+                    <h2>コメント&nbsp;<i class="fa fa-commenting-o" aria-hidden="true"></i></h2>
+                    <textarea crass="comment-area" type="text" id="comment" name="comment" 
+                        rows="6" maxlength="500" placeholder="コメントを書く..." style="width: 100%;"></textarea>
+                    <button class="submit button" id="submit">コメントする</button>
+                </div> 
+                <div style="width: 100%; height: 1px; background-color: #d3d3d3;"></div>
+                <div class="comment-list" style="border-bottom: 1px solid #d3d3d3;">
+                    <i class="fa fa-thumbs-o-up" aria-hidden="true">いいね</i>
+                </div> 
+            <!---------------------------------------------------------------------------------------------------->
+                <!-- サイドバー最新記事 後ほどコンテンツ追加 -->
                 <div class="sidebar-content">
                     <h2><span>最新記事</span></h2>
                     <ul>
@@ -243,7 +262,7 @@
             </aside>
         </div>
     </main>
-
+<!-- ここからフッター　--------------------------------------------------------------------------------------------------------------------------->
     <footer class="footer">
         <div class="block-footer-container">
             <a href="#"><img src="icon_img/image_vector.svg" class="footer-title-logo" alt="タイトルロゴイメージ"
@@ -262,7 +281,7 @@
         <div class="top-back"><a href="#"><i class="fa fa-home" aria-hidden="true"></i>TOPへ</a></div>  
     </footer>
 
-    <!-- Java Script パス -->
+    <!-- Java Script パス ----------->
     <script src="common.js"></script>
 
 </body>

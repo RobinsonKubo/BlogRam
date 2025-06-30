@@ -1,3 +1,24 @@
+// Webサイト表示時のアニメーション（ScrollRevealの設定）
+const revealCommon = {
+    duration: 2000, // アニメーションの時間（ミリ秒）
+    distance: '50px',  // 上方向に50px移動しながら表示
+    opacity: 0,        // 初期の透明度
+    easing: 'ease-in-out', // 自然な加速・減速の動き
+    reset: false,     // スクロールで何度もアニメーションさせたい場合はtrue
+};
+
+// 適用対象と個別設定の配列
+const revealTargets = [
+    { selector: '.fade-in-up',     options: { origin: 'left',   delay: 0   } }, // origin 左から右へ
+    { selector: '.fade-in-up2',    options: { origin: 'right',  delay: 600 } }, // delay 開始までの遅延（ミリ秒）
+    { selector: '.fade-profile',   options: { duration: 1500, origin: 'bottom', delay: 0   } }
+];
+
+// ループで一括適用
+revealTargets.forEach(({ selector, options }) => {
+    ScrollReveal().reveal(selector, { ...revealCommon, ...options });
+});
+
 // 問い合わせフォーム-----------------------------------------------------------
 function openForm() {
     document.getElementById('formPopup').style.display = "flex";
@@ -33,7 +54,7 @@ if (isOpen) {
 isOpen = !isOpen;
 });
 
-// 開いた後に max-height を固定解除（中身増減への対応）
+// 開いた後に max-height を固定解除（開閉時のラグへの対応）
 toc.addEventListener('transitionend', () => {
 if (isOpen) {
     toc.style.maxHeight = 'none';

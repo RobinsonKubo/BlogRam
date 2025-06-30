@@ -16,12 +16,19 @@ body {
     overflow-x: hidden;
 }
 
+/* テスト追加用ーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+ 
+
+
+/* テストここまでーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+
+
 /* -- header ------------------------------------------------ */
+
 header {
     width: 100%;
     margin: 0 auto;
     position: fixed; /* 画面固定 */
-    /* align-items: center; */
     z-index: 1000; /* 要素の重なり順（前後関係）を指定するプロパティ */
     background-color: white;
     border-bottom: 1px solid #00000022;
@@ -30,9 +37,6 @@ header {
 
 .header {
     display: flex;
-    /* flex-direction: row;　*/
-    /* justify-content: space-between;  */
-    /* align-items: center;  垂直方向も中央揃え */
     justify-content: center; 
     align-items: center; 
     width: 100%;
@@ -520,10 +524,6 @@ footer {
     .globalNav ul {
         width: 100%;
         margin: 0;
-        /* margin-left: -3.6rem;
-        margin-right: auto; */
-        /* display: flex;
-        align-items: center; */
         justify-content: center; 
     }
     
@@ -562,7 +562,7 @@ footer {
         margin-top: -10px;
     }
     
-    .main-head-title h1 {
+    .fade-in-up {
         position: absolute;
         z-index: 999;
         line-height: 1.8;
@@ -572,6 +572,7 @@ footer {
         width: 400px;
         opacity: 48%;
         margin-left: 8rem;
+        z-index: 998;
     }
 
     .toc-menu {
