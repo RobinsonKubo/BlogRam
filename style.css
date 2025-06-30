@@ -58,6 +58,10 @@ header {
     white-space: nowrap;
 }
 
+.globalNav ul li a, i {
+    transition: 0.15s;
+}
+
 .globalNav ul {
     list-style: none;
     display: flex;
@@ -168,6 +172,7 @@ main {
     margin-left: auto;
     margin-right: auto;
 }
+
 /* -- 目次 --------------------------------------- */
 .toc-menu { 
     width: 270px;
@@ -181,6 +186,7 @@ main {
     cursor: pointer;
     border-style: none;
     font-size: 130%;
+    background-color: white;
 }
 
 .toc-button:hover {
@@ -190,6 +196,8 @@ main {
 .fa-caret-up,
 .fa-caret-down {
     margin-top: 1px;
+    background-color: white;
+    transition: .15s;
 }
 
 .toc-content {
@@ -199,6 +207,7 @@ main {
     background: #fafafa;
     padding: 0 10px;
     margin: 10px auto 10px auto;
+    background-color: white;
 }
 
 .toc-content.open {
@@ -221,7 +230,7 @@ main {
 .toc-content.open li:nth-child(3) { transition-delay: 0.15s; }
 .toc-content.open li:nth-child(4) { transition-delay: 0.20s; }
 .toc-content.open li:nth-child(5) { transition-delay: 0.25s; }
-/* ーーここまでーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+
 .toc-content ul {
     list-style: none;
     padding: 12px 0;
@@ -251,12 +260,16 @@ main {
 .menu-nav a {
     text-decoration: none;
     color: black;
+    transition: color .15s;
 }
+
 
 .menu-nav a:hover {
     color: red; 
 }
 /* ーーここまでーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+
+/* プロフィール ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー*/
 .profile-flex {
     border: 1px solid #bdbdbd;
     box-sizing: border-box;
@@ -288,9 +301,9 @@ main {
 .profile-text p {
     line-height: 1.75;
 }
-/* 〜ここまで〜 */
+/*ーーー ここまで　ーーーーーーーーーーーーーーーーー*/
 
-/* ここから本章 */
+/* ここから本章 ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー*/
 .section {
     scroll-margin-top: 100px; /* ヘッダーと重ならぬようにヘッダー分の間を作る */
     box-sizing: border-box;
@@ -325,24 +338,32 @@ p {
 }
 
 /* コメント表示領域の装飾例 後で変更 */
+.sidebar-comment {
+    margin-bottom: 50px;
+}
 .comment-content {
-    box-sizing: border-box;
-    width: 90%;
-    margin: 0 auto 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 96%;
+    margin: -10px auto 10px auto;
+    justify-content: center;
 }
 .comment-area {
-    border-color: #b0b0b0;
-    border-radius: 2%;
-    
-    
+    border-color: #b0b0b070;
+    border-radius: 3px;
 }
 .comment-area:focus {
     border-color: red;
     outline: none;
 }
 .submit-button {
-    border: 1px solid #b0b0b0;
+    width: 50%;
+    margin: 0 auto;
+    border: 1px solid #b0b0b050;
     border-radius: 3px;
+    transition: color 0.25s, background-color 0.25s;
+    cursor: pointer;
 }
 .submit-button:hover {
     color: white;
@@ -351,8 +372,6 @@ p {
 
 .comment-list {
     border-bottom: 1px solid #d3d3d3;
-    background: #f9f9ff;
-    padding: 12px 16px;
     margin-bottom: 10px;
     border-radius: 6px;
     display: flex;
@@ -362,8 +381,6 @@ p {
     color: #333;
 }
 .comment-list i {
-    color: #3b82f6;
-    margin-right: 6px;
     font-size: 1.2em;
 }
 
@@ -428,7 +445,33 @@ footer {
 }
 
 /* -- レスポンシブ対応 --------------------------------------------------- */
-@media screen and (max-width: 1364px) {
+@media screen and (min-width: 1921px) {
+     .bird-img {
+        width: 695px;
+    }
+    .fade-in-up h1{
+        font-size: 400%;
+        line-height: 1.9;
+        margin-top: 30px;
+        margin-left: 28%;
+    }
+}
+
+@media screen and (min-width: 1600px) and (max-width: 1920px) {
+    .bird-img {
+        width: 600px;
+    }
+    .fade-in-up h1{
+        font-size: 360%;
+        line-height: 1.7;
+        margin-top: 30px;
+        margin-left: 25%;
+        /* display: block;
+        flex-wrap: nowrap; */
+    }
+}
+
+@media screen and (max-width: 1599px) {
      .bird-img {
         width: 538px;
     }

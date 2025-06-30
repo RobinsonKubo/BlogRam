@@ -10,7 +10,8 @@ const revealCommon = {
 const revealTargets = [
     { selector: '.fade-in-up', options: { origin: 'left', delay: 0 } }, // origin 左から右へ
     { selector: '.fade-in-up2', options: { origin: 'right', delay: 600 } }, // delay 開始までの遅延（ミリ秒）
-    { selector: '.fade-profile', options: { duration: 1500, origin: 'bottom', delay: 0 } }
+    { selector: '.aside-grid', options: { duration: 1500, origin: 'bottom', delay: 200 } },
+    { selector: '.main-grid', options: { duration: 1500, origin: 'bottom', delay: 0 } }
 ];
 // ループで一括適用
 revealTargets.forEach(({ selector, options }) => {
