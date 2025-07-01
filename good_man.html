@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>テンプレート</title>
+    <link href="../../_common/images/favicon.ico" rel="shortcut icon">
+    <link href="https://fonts.googleapis.com/css?family=M+PLUS+1p:400,500" rel="stylesheet">
+    <link href="../../_common/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <h1>タイトル</h1>
+            <h2>サブタイトル</h2>
+        </div><!-- /.container -->
+    </header>
+    <main>
+        <div class="container">
+
+        </div><!-- /.container -->
+    </main>
+    <footer>
+        <div class="container">
+            <p>JavaScript Samples</p>
+        </div><!-- /.container -->
+
+    </footer>
+    <script src="script.js"></script>
+
+    <script>
+        'use strict';
+
+        if (window.confirm('GoodManBusters！')) {
+            console.log('ゲームを開始します。');
+        } else {
+            console.log('ゲーム終了します。');
+        }
+
+        let answer;
+        while (true) {
+            answer = window.prompt('ヘルプを見ますか？');
+            if (answer === null) {
+                window.alert('キャンセルされました。');
+                break;
+            }
+            const normalized = answer.trim().toLowerCase();
+            if (normalized === 'yes') {
+                window.alert('GoodManをなるべく早く倒そう！');
+            } else if (normalized === 'no') {
+                window.alert('ゲームスタート！！');
+                break;
+            } else {
+                window.alert('yesかnoでお答えください。');
+            }
+        }
+
+        window.alert('GoodManが現れた！！');
+        // 12ラウンド以内にGoodManを倒す。
+        const attacks = [
+            { attack_name: '右ストレート', attack_sum: 10 },
+            { attack_name: '左フック', attack_sum: 5 },
+            { attack_name: 'アッパー', attack_sum: 50 }
+        ]
+
+        let enemy_life = 200;
+        let downMessageShown = false;
+        let count = 0;
+
+        while (enemy_life > 0) {
+            const randomAttack = attacks[Math.floor(Math.random() * attacks.length)];
+            console.log(`${randomAttack.attack_name}!!`);
+            enemy_life -= randomAttack.attack_sum;
+            count += 1;
+            if (enemy_life <= 100 && !downMessageShown) {
+                console.log('おおっと、今のはダウンか！？　いや、ダウンではない！！');
+                downMessageShown = true;
+            }
+        }
+        console.log('チャ、チャンピオンがダウン！！');
+        console.log(count + 'ラウンドでGoodManを倒した！');
+    </script>
+</body>
+
+</html>
