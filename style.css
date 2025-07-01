@@ -16,13 +16,6 @@ body {
     overflow-x: hidden;
 }
 
-/* テスト追加用ーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
- 
-
-
-/* テストここまでーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
-
-
 /* -- header ------------------------------------------------ */
 
 header {
@@ -47,14 +40,14 @@ header {
     width: clamp(120px, 20vw, 160px);
     /* 最小値、理想値、最大値 */
     box-sizing: border-box;
-    margin: 0 auto;
+    margin: 0 auto 0 10%;
 }
 
 .globalNav {
     width: 70%;
     margin-top: auto;
-    margin-right: auto;
-    margin-left: 1rem;
+    margin-right: 4%;
+    /* margin-left: auto; */ 
     white-space: nowrap;
 }
 
@@ -111,6 +104,16 @@ header {
 
 .navItem .pc-off {display: none;}
 /* .navItem .sp-off {display: inline-block;} */
+
+.login-button {
+    margin-right: 10%;
+    cursor: pointer;
+}
+
+.fa-circle-user {
+    font-size: 250%;
+    color: lch(0% 0 0 / 0.6);
+}
 
 /* -- ここからmain ------------------------------------------------- */
 main {
@@ -479,18 +482,25 @@ footer {
 
 @media screen and (max-width: 1080px) {
     .title-logo {
-        margin: 0;
+        margin-right: 3%;
+        margin-left: auto;
     }
 
     .globalNav {
         /* 画面縮小時に要素が重ならないようにする */
-        width: auto;
-        margin: auto auto 0 auto; 
+        /* width: auto; */
+        /* width: clamp(auto, 10vw, 100%); */
+        margin: auto 1rem 0 auto; 
     }
 
     .globalNav li {
         /* これは重要 */
-        flex: 0 0 6rem; 
+        flex: 0 0 20%; 
+        /* margin-left: 1rem; */
+    }
+
+    .login-button {
+        margin-right: auto;
     }
 
     .main-head-title {
@@ -518,7 +528,7 @@ footer {
         grid-template-columns: 1fr;
         gap: 0; 
     }
-/* ーーあとで修正するーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+
     .toc-menu {
         width: 230px;
         box-sizing: border-box;
@@ -540,7 +550,6 @@ footer {
     .menu-nav li {
         line-height: 2.5;
     }
-/* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
 
     .main-contener-grid {
         grid-template-columns: 1fr;
@@ -637,6 +646,15 @@ footer {
 
     .form-button:hover {
         text-decoration: none; 
+    }
+
+    .login-button{
+        position: fixed; /*ウインドウに合わせ固定*/
+        right: 10px;
+        top: 5px;
+    }
+    .fa-circle-user {
+        font-size: 200%;
     }
 
     /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
