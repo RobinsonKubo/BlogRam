@@ -18,6 +18,14 @@ revealTargets.forEach(({ selector, options }) => {
     ScrollReveal().reveal(selector, { ...revealCommon, ...options });
 });
 
+// モバイルパフォーマンスに重要　ページの読み込みが完了してから内部の処理を実行する
+window.addEventListener('load', () => {
+  revealTargets.forEach(({ selector,options }) => {
+    ScrollReveal().reveal(selector, { ...revealCommon, ...options })
+  });
+});
+
+
 // 問い合わせフォーム-----------------------------------------------------------
 function openForm() {
     document.getElementById('formPopup').style.display = "flex";
