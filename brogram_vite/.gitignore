@@ -25,3 +25,15 @@ dist-ssr
 
 # FirebaseSDK　config
 **/firebase/app.js
+
+# # VSCodeの設定
+.vscode/
+
+# # macOSの不要ファイル
+.DS_Store
+
+# # 環境変数ファイル（今後使う場合）
+.env
+
+
+
