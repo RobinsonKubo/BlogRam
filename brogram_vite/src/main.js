@@ -14,6 +14,7 @@ const logoutBtn = document.getElementById("logoutBtn");
 const commentForm = document.getElementById("comment-form");
 const commentInput = document.getElementById("comment");
 const commentList = document.getElementById("comment-list");
+const loginBtnComment = document.getElementById("googleLoginBtnComment"); //
 
 let currentUser = null;
 
@@ -22,11 +23,13 @@ onAuthStateChanged(auth, (user) => {
   if (user) {
     currentUser = user;
     loginBtn.style.display = "none";
+    loginBtnComment.style.display = "none"; //
     logoutBtn.style.display = "inline-block";
     commentForm.style.display = "block";
   } else {
     currentUser = null;
     loginBtn.style.display = "inline-block";
+    loginBtnComment.style.display = "inline-block"; //
     logoutBtn.style.display = "none";
     commentForm.style.display = "none";
   }
@@ -34,6 +37,11 @@ onAuthStateChanged(auth, (user) => {
 
 // ログイン
 loginBtn.addEventListener("click", () => {
+  signInWithPopup(auth, provider).catch(console.error);
+});
+
+// ログイン
+loginBtnComment.addEventListener("click", () => {        //
   signInWithPopup(auth, provider).catch(console.error);
 });
 

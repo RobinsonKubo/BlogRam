@@ -380,8 +380,13 @@ p {
     align-items: center;
     border-radius: 4px;
     z-index: 10;
-    pointer-events: none;
+    /* pointer-events: none; */
 }
+
+/* .comment-login {
+    pointer-events: all;
+} */
+
 /* ーーーーーーーーーーーーーーーーーーーーーー */
 .comment-area:focus {
     border-color: red;
