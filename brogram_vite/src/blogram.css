@@ -347,14 +347,42 @@ p {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    width: 96%;
-    margin: -10px auto 10px auto;
-    justify-content: center;
+    margin: -10px 0 10px 0;
 }
+/* 編集中ーーーーーーーーーーーーー */
+.comment-box {
+    position: relative;
+    margin-bottom: auto;
+    width: 100%;
+}
+/* ーーーーーーーーーーーーーーーーーーーーーー */
 .comment-area {
     border-color: #b0b0b070;
     border-radius: 3px;
+    width: 100%;
+    height: auto;
+    
 }
+/* 編集中ーーーーーーーーーーーーー */
+.overlay-message {
+    height: auto;
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 7%;
+    background: rgba(0, 0, 0, 0.15);
+    color: #6a6a6a;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    z-index: 10;
+    pointer-events: none;
+}
+/* ーーーーーーーーーーーーーーーーーーーーーー */
 .comment-area:focus {
     border-color: red;
     outline: none;
