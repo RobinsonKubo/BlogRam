@@ -1,8 +1,8 @@
-import './blogram.css'
-import './font_style.css'
-import './form.css'
-import './blogram.js'
-import './firebase/app.js'
+import './blogram.css';
+import './font_style.css';
+import './form.css';
+import './blogram.js';
+import './firebase/app.js';
 
 import { auth, provider } from "./firebase/auth";
 import { db } from "./firebase/firestore";

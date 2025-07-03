@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <link href="https://unpkg.com/sanitize.css" rel="stylesheet">
-    <link rel="stylesheet" href="src/blogram.css"> 
-    <link rel="stylesheet" href="src/form.css"> 
-    <link rel="icon" href="public/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/src/blogram.css"> 
+    <link rel="stylesheet" href="/src/form.css"> 
+    <link rel="icon" href="/public/favicon.ico" type="image/x-icon">
     <!-- Google日本語フォント -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
     <!-- Googleフォント -->
@@ -19,9 +19,9 @@
     <!-- font-awesome アイコン CDN あまりCDNの重複はよろしくないのでできるだけどちらかに絞る -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
         integrity="sha512-dppxU5HeG3N+etc..." crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="src/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="/src/font-awesome/css/font-awesome.css">
     <!-- ScrollReveal.js CDN -->
-    <script src="https://unpkg.com/scrollreveal"></script>
+    <!-- <script src="https://unpkg.com/scrollreveal"></script> -->
 
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta name="description" content="初学者からプロまでが集うブログサイト">
@@ -32,7 +32,7 @@
 
 <body>
     <header class="header">
-        <img src="public/icon_img/image_vector.svg" class="title-logo" alt="TitoleLogImage">
+        <img src="/public/icon_img/image_vector.svg" class="title-logo" alt="TitoleLogImage">
         <nav class="globalNav">
             <ul>
                 <li class="navItem navItem-1"><a href="#"><i class="fa fa-home form-button"
@@ -43,7 +43,7 @@
                         <i class="fa fa-pencil-square-o form-button" aria-hidden="true">&nbsp;ブログ</i></a></li>
                 <!-- 問い合わせフォームのへのアクセス -->
                 <li class="navItem navItem-4" style="box-sizing: border-box; margin-bottom: 1px;">
-                    <button class="form-button" id="openFormBtn" onclick="openForm()">
+                    <button class="form-button" id="openFormBtn" >
                         <i class="fa fa-envelope form-button" aria-hidden="true">&nbsp;お問い合わせ</i>
                     </button>
                 </li>
@@ -58,7 +58,7 @@
         <!-- 下記より問い合せページへ ----------------------------------------------------------------------------------------->
         <div class="form-container" id="formPopup">
             <div class="form-box">
-                <span class="close-btn button-cursor" id="closeFormBtn" onclick="closeForm()">×</span>
+                <span class="close-btn button-cursor" id="closeFormBtn" >×</span>
                 <div class="form-block">
                     <form class="form-action" action="proglam.php">
                         <p class="form-action-p"><strong>お問い合わせフォーム</strong></p>
@@ -272,7 +272,7 @@
     <!-- ここからフッター　--------------------------------------------------------------------------------------------------------------------------->
     <footer class="footer">
         <div class="block-footer-container">
-            <a href="#"><img src="public/icon_img/image_vector.svg" class="footer-title-logo" alt="タイトルロゴイメージ" width="50%"></a>
+            <a href="#"><img src="/public/icon_img/image_vector.svg" class="footer-title-logo" alt="タイトルロゴイメージ" width="50%"></a>
             <p class="copyl"><small style="color: rgb(78, 78, 78);">©️ 2025 Soshi.</small></p>
         </div>
 
@@ -288,7 +288,7 @@
     </footer>
 
     <!-- Java Script パス ----------->
-    <script src="src/blogram.js" defer>'use strict';</script>
+    <!-- <script type="module" src="src/blogram.js"></script> -->
     <script type="module" src="/src/main.js"></script>
 </body>
 

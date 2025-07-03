@@ -12,6 +12,7 @@
     "vite": "^7.0.0"
   },
   "dependencies": {
-    "firebase": "^11.10.0"
+    "firebase": "^11.10.0",
+    "scrollreveal": "^4.0.9"
   }
 }
