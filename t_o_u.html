@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ブログ投稿フォーム</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        input, textarea, select {
+            width: 100%;
+            margin: 5px 0 15px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<h2>ブログ投稿フォーム</h2>
+<form action="your-server-endpoint" method="POST">
+    <label for="title">タイトル:</label>
+    <input type="text" id="title" name="title" required>
+
+    <label for="author">著者名:</label>
+    <input type="text" id="author" name="author" required>
+
+    <label for="content">内容:</label>
+    <textarea id="content" name="content" rows="10" required></textarea>
+
+    <label for="category">カテゴリー:</label>
+    <select id="category" name="category" required>
+        <option value="web制作">Web制作</option>
+        <option value="プログラミング">プログラミング</option>
+        <option value="デザイン">デザイン</option>
+        <option value="マーケティング">マーケティング</option>
+    </select>
+
+    <input type="submit" value="投稿する">
+</form>
+
+</body>
+</html>
