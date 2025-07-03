@@ -1,7 +1,10 @@
 import ScrollReveal from "scrollreveal";
-document.addEventListener('DOMContentLoaded', () => {
+import app from "./firebase/app";
+import { getAuth, GoogleAuthProvider, onAuthStateChanged } from "firebase/auth";
+const auth = getAuth(app);
+document.addEventListener('DOMContentLoaded', () => { // DOMの読み込みが完了してから実行される処理
     
-    // Webサイト表示時のアニメーション（ScrollRevealの設定）
+    // Webサイト表示時のアニメーション（ScrollRevealの設定）--------------------------------------
     const revealCommon = {
         duration: 1500, // アニメーションの時間（ミリ秒）
         distance: '30px',  // 上方向に50px移動しながら表示
@@ -21,7 +24,8 @@ document.addEventListener('DOMContentLoaded', () => {
         ScrollReveal().reveal(selector, { ...revealCommon, ...options });
     });
 
-    // 問い合わせフォーム-----------------------------------------------------------
+
+    // 問い合わせフォーム　開閉-----------------------------------------------------------
     document.getElementById('openFormBtn').addEventListener('click', openForm);
     document.getElementById('closeFormBtn').addEventListener('click', closeForm);
 
@@ -36,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    // メニュ toc-menu ----------------------------------------------------------
+    // メニュ toc-menu 開閉----------------------------------------------------------
     const toggleBtn = document.getElementById('toc-toggle');
     const toc = document.getElementById('toc-content');
     let isOpen = false;
@@ -64,4 +68,27 @@ document.addEventListener('DOMContentLoaded', () => {
             toc.style.maxHeight = 'none';
         }
     });
+
+
+    // コメントフォームの機能 メソッド-----------------------------------------------------------
+    onAuthStateChanged(auth, (user) => { 
+        const commentBox = document.getElementById('commentBox');
+        const commentArea = document.getElementById('commentArea');
+        const overlay = document.getElementById('overlayMessage');
+        const submitBtn = document.getElementById('commentSubmit');
+
+        commentBox.style.display = 'block';
+
+        if (user) {
+            commentArea.disabled = false;
+            submitBtn.disabled = false;
+            overlay.style.display = 'none';// disabled はユーザーに操作を許可しない 
+            // =false は逆にそのフォームを“有効”にする（ユーザーが入力・操作できるようにする）
+        } else {
+            commentArea.disabled = true;
+            submitBtn.disabled = true;
+            overlay.style.display = 'flex';
+        }
+    });
+
 });
