@@ -1,8 +1,13 @@
 import ScrollReveal from "scrollreveal";
+
 import app from "./firebase/app";
 import { getAuth, GoogleAuthProvider, onAuthStateChanged } from "firebase/auth";
 const auth = getAuth(app);
-document.addEventListener('DOMContentLoaded', () => { // DOMの読み込みが完了してから実行される処理
+
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+import { db } from "./firebase/app.js";
+
+document.addEventListener('DOMContentLoaded', () => { // DOMの読み込みが完了してから実行される処理　※大事
     
     // Webサイト表示時のアニメーション（ScrollRevealの設定）--------------------------------------
     const revealCommon = {
@@ -17,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => { // DOMの読み込みが�
         { selector: '.fade-in-up', options: { origin: 'left', delay: 0 } }, // origin 左から右へ
         { selector: '.fade-in-up2', options: { origin: 'right', delay: 500 } }, // delay 開始までの遅延（ミリ秒）
         { selector: '.fade-profile', options: { origin: 'bottom', delay: 0 } },
-        // { selector: '.main-grid', options: { duration: 1500, origin: 'bottom', delay: 0 } }
+        // { selector: '.main-grid', options: { duration: 1500, origin: 'bottom', delay: 0 } }　// スマホ表示時若干ラグの可能性
     ];
     // ループで一括適用
     revealTargets.forEach(({ selector, options }) => {
@@ -71,13 +76,13 @@ document.addEventListener('DOMContentLoaded', () => { // DOMの読み込みが�
 
 
     // コメントフォームの機能 メソッド-----------------------------------------------------------
-    onAuthStateChanged(auth, (user) => { 
+    onAuthStateChanged(auth, (user) => { // auth は Firebase が提供するインスタンス
         const commentBox = document.getElementById('commentBox');
         const commentArea = document.getElementById('commentArea');
         const overlay = document.getElementById('overlayMessage');
         const submitBtn = document.getElementById('commentSubmit');
 
-        commentBox.style.display = 'block';
+        commentBox.style.display = 'block';// JavaScriptでは、element.style で その要素のインラインCSSを操作できます。
 
         if (user) {
             commentArea.disabled = false;
@@ -90,5 +95,44 @@ document.addEventListener('DOMContentLoaded', () => { // DOMの読み込みが�
             overlay.style.display = 'flex';
         }
     });
+
+    // Firestore にデータを追加
+    //　JSは、時間のかかる処理（例えばFirebaseへの通信）は待たずに先に進んでしまう傾向があるので、
+    async function postComment(text) { // 関数自体を async にしてから、await を使って完了を待つ。
+        const user = auth.currentUser;// auth.currentUser は Firebase Authentication が公式に提供しているプロパティ
+        if (!user) return;
+
+        await addDoc(collection(db, "comments"), { // async 関数の中で使用する。
+            text: text,
+            uid: user.uid,
+            displayName: user.displayName || "匿名",
+            createdAt: serverTimestamp()
+        });
+    };
+
+
+    const commentInput = document.getElementById('commentArea');
+    const submitBtn = document.getElementById('commentSubmit');
+
+    submitBtn.addEventListener('click', async () => {
+    const text = commentInput.value.trim();
+    if (!text) return;
+
+    try { // try () はJSのブロック構文
+        await addDoc(collection(db, "comments"), {
+        text,
+        uid: auth.currentUser.uid,
+        displayName: auth.currentUser.displayName || "匿名",
+        createdAt: serverTimestamp()
+        });
+
+        commentInput.value = ""; // 成功したら入力欄を空にする
+        alert("コメントを投稿しました！");
+    } catch (e) {
+        console.error("投稿エラー:", e);
+        alert("投稿に失敗しました");
+    }
+    });
+        
 
 });
