@@ -1,0 +1,132 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>テンプレート</title>
+    <link href="../../_common/images/favicon.ico" rel="shortcut icon">
+    <link href="https://fonts.googleapis.com/css?family=M+PLUS+1p:400,500" rel="stylesheet">
+    <link href="../../_common/css/style.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'M PLUS 1p', sans-serif;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+        }
+
+        .comment-output p {
+            background-color: #f0f0f0;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+        }
+
+        input[type="text"] {
+            width: 70%;
+            padding: 8px;
+        }
+
+        input[type="submit"] {
+            padding: 8px 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <h1>タイトル</h1>
+            <h2>サブタイトル</h2>
+        </div><!-- /.container -->
+    </header>
+    <main>
+        <div class="container">
+            <section>
+                <form action="#" id="form">
+                    <input type="text" name="commentArea">
+                    <input type="submit" value="コメントする">
+                </form>
+                <div id="output">
+                </div>
+
+                <!-- <p><span id="time"></span></p> -->
+            </section>
+        </div><!-- /.container -->
+    </main>
+    <footer>
+        <div class="container">
+            <p>JavaScript Samples</p>
+        </div><!-- /.container -->
+    </footer>
+    <script>
+        'use strict'
+
+        // document.getElementById('form').onsubmit = function () {
+        //     event.preventDefault(); //必要
+        //     const search = document.getElementById('form').word.value;
+        //     document.getElementById('output').textContent = `${search}の検索中…`;
+        // };
+
+
+
+
+        // 関数に名前をつけて再利用したいときは、こう書けます　function　handleSubmit() {}
+
+        document.getElementById('form').onsubmit = function (event) { // 無名関数
+            event.preventDefault();// フォーム送信によるページリロードを防止する
+            const comment = document.getElementById('form').commentArea.value.trim();
+
+            // 空欄は追加しない --------------------------------------------------------
+            if (comment === '') return;
+
+            // 直接画面に表示するコメント一覧の数を指定 --------------------------------
+            const output = document.getElementById('output');
+            if (output.childElementCount >= 4) { // 5個以上は追加しない
+                output.removeChild(output.lastChild); // 一番古い(最後の)コメントを削除
+            }
+
+            // コメントをリストに追加 ------------------------------------------------
+            const commentList = document.createElement('div');
+            commentList.className = 'comment-block'; // クラス名のないタグ<>にクラス名を追加する
+
+            const commentText = document.createElement('p');
+            commentText.textContent = comment;
+            commentList.appendChild(commentText); // 親要素(commentList)の子要素として追加
+
+            const commentDate = document.createElement('span');
+            commentDate.textContent = date.getOutputDate();
+            commentDate.className = 'comment-date'; // <span class="conmment-date">
+            commentList.appendChild(commentDate); // 親要素(commentList)の子要素として追加
+
+            output.insertBefore(commentList, output.firstChild);// 新しいものを一番上に挿入（昇順表示）
+
+
+            // 入力欄をクリア ---------------------------------------------------------
+            document.getElementById('form').commentArea.value = '';
+
+        };
+
+        // 投稿日を追加
+        class DateDisplay {
+            getOutputDate() {
+                const now = new Date();
+                const year = now.getFullYear();
+                const month = now.getMonth() + 1;
+                const date = now.getDate();
+                const hour = now.getHours();
+                const min = now.getMinutes();
+
+                return `${year}/${month}/${date} ${hour}:${min}`;
+            }
+        }
+
+        const date = new DateDisplay(); // インスタンス生成
+    </script>
+</body>
+
+</html>
