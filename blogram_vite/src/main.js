@@ -5,16 +5,17 @@ import './blogram.js';
 import './firebase/app.js';
 
 import { auth, provider } from "./firebase/auth";
-import { db } from "./firebase/firestore";
+import { db, getLatestComments } from "./firebase/firestore";
 import { signInWithPopup, signOut, onAuthStateChanged } from "firebase/auth";
-import { collection, addDoc, serverTimestamp, onSnapshot, orderBy, query } from "firebase/firestore";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 
 const loginBtn = document.getElementById("googleLoginBtn");
 const logoutBtn = document.getElementById("logoutBtn");
-const commentForm = document.getElementById("comment-form");
-const commentInput = document.getElementById("comment");
-const commentList = document.getElementById("comment-list");
-const loginBtnComment = document.getElementById("googleLoginBtnComment"); //
+const commentSubmitBtn = document.getElementById("commentSubmit"); // IDを修正
+const commentInput = document.getElementById("commentArea");      // IDを修正
+const commentsContainer = document.getElementById("comments-container");
+const loginBtnComment = document.getElementById("googleLoginBtnComment");
+const overlayMessage = document.getElementById("overlayMessage"); // オーバーレイを取得
 
 let currentUser = null;
 
@@ -23,15 +24,17 @@ onAuthStateChanged(auth, (user) => {
   if (user) {
     currentUser = user;
     loginBtn.style.display = "none";
-    loginBtnComment.style.display = "none"; //
     logoutBtn.style.display = "inline-block";
-    commentForm.style.display = "block";
+    overlayMessage.style.display = "none"; // ログイン時はオーバーレイを非表示
+    commentInput.disabled = false; // テキストエリアを有効化
+    commentSubmitBtn.disabled = false; // 送信ボタンを有効化
   } else {
     currentUser = null;
     loginBtn.style.display = "inline-block";
-    loginBtnComment.style.display = "inline-block"; //
     logoutBtn.style.display = "none";
-    commentForm.style.display = "none";
+    overlayMessage.style.display = "flex"; // 未ログイン時はオーバーレイを表示
+    commentInput.disabled = true; // テキストエリアを無効化
+    commentSubmitBtn.disabled = true; // 送信ボタンを無効化
   }
 });
 
@@ -40,8 +43,8 @@ loginBtn.addEventListener("click", () => {
   signInWithPopup(auth, provider).catch(console.error);
 });
 
-// ログイン
-loginBtnComment.addEventListener("click", () => {        //
+// ログイン (コメント欄のボタン)
+loginBtnComment.addEventListener("click", () => {
   signInWithPopup(auth, provider).catch(console.error);
 });
 
@@ -50,29 +53,52 @@ logoutBtn.addEventListener("click", () => {
   signOut(auth).catch(console.error);
 });
 
-// コメント投稿
-commentForm.addEventListener("submit", async (e) => {
-  e.preventDefault();
+// コメント投稿 (クリックイベントに変更)
+commentSubmitBtn.addEventListener("click", async () => {
   const text = commentInput.value.trim();
   if (!text || !currentUser) return;
-  await addDoc(collection(db, "comments"), {
-    uid: currentUser.uid,
-    name: currentUser.displayName,
-    comment: text,
-    createdAt: serverTimestamp()
-  });
-  commentInput.value = "";
+  
+  try {
+    await addDoc(collection(db, "comments"), {
+      uid: currentUser.uid,
+      name: currentUser.displayName,
+      comment: text,
+      timestamp: serverTimestamp()
+    });
+    commentInput.value = "";
+    displayLatestComments(); // 投稿後にリストを更新
+  } catch (error) {
+    console.error("コメントの投稿中にエラーが発生しました:", error);
+  }
 });
 
-// コメント一覧取得（リアルタイム）
-const q = query(collection(db, "comments"), orderBy("createdAt", "desc"));
-onSnapshot(q, (snapshot) => {
-  commentList.innerHTML = "";
-  snapshot.forEach((doc) => {
-    const data = doc.data();
-    const item = document.createElement("li");
-    item.textContent = `${data.name || "匿名"}：${data.comment}`;
-    commentList.appendChild(item);
-  });
-});
+/**
+ * 最新のコメント5件を取得して表示する
+ */
+async function displayLatestComments() {
+    if (!commentsContainer) return; // 要素がなければ何もしない
+    const comments = await getLatestComments();
+    commentsContainer.innerHTML = ""; // コンテナをクリア
+
+    comments.forEach(comment => {
+        const li = document.createElement("li");
+        li.classList.add("comment-item");
+
+        const commentDate = comment.timestamp ? comment.timestamp.toDate().toLocaleString('ja-JP') : '日付不明';
+
+        li.innerHTML = `
+            <div class="comment-meta">
+                <span class="comment-author">${comment.name || '匿名'}</span>
+                <span class="comment-date">${commentDate}</span>
+            </div>
+            <p class="comment-text">${comment.comment}</p>
+        `;
+        commentsContainer.appendChild(li);
+    });
+}
+
+// ページ読み込み時に初回表示
+document.addEventListener('DOMContentLoaded', displayLatestComments);
+
+
 

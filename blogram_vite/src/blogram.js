@@ -115,24 +115,51 @@ document.addEventListener('DOMContentLoaded', () => { // DOMの読み込みが�
     const submitBtn = document.getElementById('commentSubmit');
 
     submitBtn.addEventListener('click', async () => {
-    const text = commentInput.value.trim();
-    if (!text) return;
+        const text = commentInput.value.trim();
+        if (!text) return;
 
-    try { // try () はJSのブロック構文
-        await addDoc(collection(db, "comments"), {
-        text,
-        uid: auth.currentUser.uid,
-        displayName: auth.currentUser.displayName || "匿名",
-        createdAt: serverTimestamp()
-        });
+        try { // try () はJSのブロック構文
+            await addDoc(collection(db, "comments"), {
+            text,
+            uid: auth.currentUser.uid,
+            displayName: auth.currentUser.displayName || "匿名",
+            createdAt: serverTimestamp()
+            });
 
-        commentInput.value = ""; // 成功したら入力欄を空にする
-        alert("コメントを投稿しました！");
-    } catch (e) {
-        console.error("投稿エラー:", e);
-        alert("投稿に失敗しました");
-    }
+            commentInput.value = ""; // 成功したら入力欄を空にする
+            alert("コメントを投稿しました！");
+        } catch (e) {
+            console.error("投稿エラー:", e);
+            alert("投稿に失敗しました");
+        }
     });
+
+
+
+
+    // const q = query(collection(db, 'comments'), orderBy('createdAt', 'desc'));
+    //     onSnapshot(q, (querySnapshot) => {
+    //         output.innerHTML = ''; // 表示を一度クリア
+    //         querySnapshot.forEach((doc) => {
+    //             const comment = doc.data();
+    //             const commentList = document.createElement('div');
+    //             commentList.className = 'comment-block';
+
+    //             const commentTextElement = document.createElement('p');
+    //             commentTextElement.textContent = comment.text;
+    //             commentList.appendChild(commentTextElement);
+
+    //             const commentDate = document.createElement('span');
+    //             commentDate.className = 'comment-date';
+    //             if (comment.createdAt) {
+    //                 const d = comment.createdAt.toDate();
+    //                 commentDate.textContent = `${d.getFullYear()}/${d.getMonth() + 1}/${d.getDate()} ${d.getHours()}:${d.getMinutes()}`;
+    //             }
+    //             commentList.appendChild(commentDate);
+
+    //             output.appendChild(commentList);
+    //         });
+    //     });
         
 
 });
